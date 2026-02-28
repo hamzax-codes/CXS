@@ -80,7 +80,7 @@
   background: #f0fdf4;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #0d9488, #f97316);
+  background: linear-gradient(to bottom, #f43b47, #f97316);
   border-radius: 10px;
 }
 
@@ -102,15 +102,15 @@ h1, h2, h3, h4 {
 }
 
 /* ===== GRADIENT TEXT ===== */
-.text-gradient-teal {
-  background: linear-gradient(135deg, #0d9488, #06b6d4, #f97316);
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #f43b47, #453a94, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, #f97316, #f59e0b, #06b6d4);
+  background: linear-gradient(135deg, #f97316, #f59e0b, #453a94);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

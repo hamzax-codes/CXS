@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'glass-white shadow-xl shadow-teal-900/10 py-2'
+          ? 'glass-white shadow-xl shadow-[#453a94]/10 py-2'
           : 'bg-transparent py-4'
         }`}
       initial={{ y: -100, opacity: 0 }}
@@ -52,14 +52,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => scrollTo('#home')} className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl overflow-hidden shadow-lg shadow-teal-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+          <div className="w-11 h-11 rounded-2xl overflow-hidden shadow-lg shadow-[#f43b47]/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
             <img src="/images/logo.jpg" alt="Excursion Society Logo" className="w-full h-full object-cover" />
           </div>
           <div className="text-left leading-tight">
             <div className={`text-sm font-black tracking-[0.2em] uppercase transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
               Excursion
             </div>
-            <div className={`text-[10px] font-medium tracking-[0.35em] uppercase transition-colors ${scrolled ? 'text-teal-600' : 'text-teal-300'}`}>
+            <div className={`text-[10px] font-medium tracking-[0.35em] uppercase transition-colors ${scrolled ? 'text-[#453a94]' : 'text-[#f43b47]'}`}>
               Society
             </div>
           </div>
@@ -75,13 +75,13 @@ export default function Navbar() {
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
                 className={`text-sm tracking-wide relative group font-medium transition-colors ${scrolled
-                    ? isActive ? 'text-teal-600' : 'text-slate-700 hover:text-teal-600'
-                    : isActive ? 'text-teal-300' : 'text-white/80 hover:text-white'
+                    ? isActive ? 'text-[#453a94]' : 'text-slate-700 hover:text-[#453a94]'
+                    : isActive ? 'text-[#f43b47]' : 'text-white/80 hover:text-white'
                   }`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-teal-500 to-slate-400 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[#f43b47] to-slate-400 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
                 />
               </button>
@@ -89,7 +89,7 @@ export default function Navbar() {
           })}
           <button
             onClick={() => scrollTo('#apply')}
-            className="px-5 py-2.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm rounded-full font-semibold hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105 transition-all duration-300"
+            className="px-5 py-2.5 bg-gradient-to-r from-[#f43b47] to-[#453a94] text-white text-sm rounded-full font-semibold hover:shadow-xl hover:shadow-[#f43b47]/40 hover:scale-105 transition-all duration-300"
           >
             Join Us ✦
           </button>
@@ -122,7 +122,7 @@ export default function Navbar() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => scrollTo(link.href)}
-                  className="block w-full text-left text-slate-800 py-3 px-4 rounded-xl hover:bg-teal-50 hover:text-teal-700 transition-all font-medium text-sm"
+                  className="block w-full text-left text-slate-800 py-3 px-4 rounded-xl hover:bg-[#f43b47]/10 hover:text-[#453a94] transition-all font-medium text-sm"
                 >
                   {link.label}
                 </motion.button>
@@ -132,7 +132,7 @@ export default function Navbar() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: navLinks.length * 0.05 }}
                 onClick={() => scrollTo('#apply')}
-                className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl font-semibold text-sm"
+                className="w-full mt-2 py-3 px-4 bg-gradient-to-r from-[#f43b47] to-[#453a94] text-white rounded-xl font-semibold text-sm"
               >
                 Join the Society ✦
               </motion.button>

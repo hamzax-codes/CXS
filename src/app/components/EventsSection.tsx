@@ -10,8 +10,8 @@ const tours = [
     date: 'October 2024',
     participants: 42,
     duration: '5 Days',
-    gradient: 'from-teal-500 to-emerald-600',
-    tagColor: 'bg-teal-100 text-teal-700',
+    gradient: 'from-[#f43b47] to-emerald-600',
+    tagColor: 'bg-[#f43b47]/10 text-[#453a94]',
     coverImage: 'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
       'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
@@ -67,14 +67,14 @@ const tours = [
     date: 'May 2024',
     participants: 28,
     duration: '2 Days',
-    gradient: 'from-slate-500 to-teal-600',
+    gradient: 'from-slate-500 to-[#453a94]',
     tagColor: 'bg-slate-100 text-slate-700',
     coverImage: 'https://images.unsplash.com/photo-1699950856282-8a3922a224a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
       'https://images.unsplash.com/photo-1699950856282-8a3922a224a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
       'https://images.unsplash.com/photo-1592613824285-2cdf3ed61761?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
     ],
-    description: 'An adrenaline-pumping white water rafting adventure on the wild Kunhar River. Members conqueteal Grade III rapids, faced their fears, and came out stronger — and soaked!',
+    description: 'An adrenaline-pumping white water rafting adventure on the wild Kunhar River. Members conquered Grade III rapids, faced their fears, and came out stronger — and soaked!',
     highlights: ['Grade III Rapids', 'Safety Training', 'River Camping', 'Evening Bonfire'],
     tags: ['Extreme', 'Water Sports', 'Adrenaline'],
   },
@@ -103,7 +103,7 @@ const tours = [
     date: 'September 2024',
     participants: 22,
     duration: '6 Days',
-    gradient: 'from-cyan-500 to-teal-600',
+    gradient: 'from-[#453a94]/100 to-[#453a94]',
     tagColor: 'bg-cyan-100 text-cyan-700',
     coverImage: 'https://images.unsplash.com/photo-1715338385682-be15ecc215cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
@@ -204,7 +204,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
           {/* Close */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-teal-50 hover:text-teal-500 flex items-center justify-center transition-colors z-10"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-[#f43b47]/10 hover:text-[#f43b47] flex items-center justify-center transition-colors z-10"
           >
             <X className="w-4 h-4" />
           </button>
@@ -225,7 +225,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
               { icon: Users, label: `${tour.participants} Members` },
             ].map(({ icon: Icon, label }, i) => (
               <span key={i} className="inline-flex items-center gap-1.5 text-xs bg-slate-50 text-slate-600 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-                <Icon className="w-3.5 h-3.5 text-teal-500" />
+                <Icon className="w-3.5 h-3.5 text-[#f43b47]" />
                 {label}
               </span>
             ))}
@@ -237,7 +237,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
           {/* Highlights */}
           <div>
             <h4 className="text-slate-900 font-bold text-sm mb-3 flex items-center gap-2">
-              <Map className="w-4 h-4 text-teal-500" />
+              <Map className="w-4 h-4 text-[#f43b47]" />
               Trip Highlights
             </h4>
             <div className="grid grid-cols-1 gap-2">
@@ -305,7 +305,7 @@ function TourCard({ tour, onClick }: { tour: Tour; onClick: () => void }) {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-slate-900 font-bold text-base mb-1 group-hover:text-teal-700 transition-colors">
+        <h3 className="text-slate-900 font-bold text-base mb-1 group-hover:text-[#453a94] transition-colors">
           {tour.name}
         </h3>
         <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
@@ -356,14 +356,15 @@ export default function EventsSection() {
           </motion.div>
         </div>
 
-        {/* Tour Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Tour Grid with Collision Effect */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-hidden p-4 -m-4">
           {tours.map((tour, i) => (
             <motion.div
               key={tour.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -150 : 150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.4, delay: (Math.floor(i / 3) * 0.2) }}
             >
               <TourCard tour={tour} onClick={() => setSelectedTour(tour)} />
             </motion.div>

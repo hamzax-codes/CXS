@@ -6,7 +6,7 @@ const socialLinks = [
     label: 'YouTube',
     icon: Youtube,
     href: 'https://youtube.com/@excursionsociety',
-    color: 'hover:text-teal-400 hover:bg-teal-500/10',
+    color: 'hover:text-[#f43b47] hover:bg-[#f43b47]/10',
     bg: 'bg-[#FF0000]',
   },
 ];
@@ -29,7 +29,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-slate-950 text-white pt-16 pb-8">
       {/* Decorative top edge */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-teal-500/50 to-transparent mb-16" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#f43b47]/50 to-transparent mb-16" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
@@ -37,12 +37,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-lg shadow-teal-500/25">
+              <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-lg shadow-[#f43b47]/25">
                 <img src="/images/logo.jpg" alt="Excursion Society Logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <div className="text-sm font-black tracking-[0.2em] uppercase">Excursion</div>
-                <div className="text-[10px] text-teal-400 tracking-[0.35em] uppercase font-medium">Society</div>
+                <div className="text-[10px] text-[#f43b47] tracking-[0.35em] uppercase font-medium">Society</div>
               </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -74,9 +74,9 @@ export default function Footer() {
                 <li key={label}>
                   <button
                     onClick={() => scrollTo(href)}
-                    className="text-slate-400 hover:text-teal-400 text-sm transition-colors flex items-center gap-2 group"
+                    className="text-slate-400 hover:text-[#f43b47] text-sm transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-teal-600 group-hover:bg-teal-400 transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-[#453a94] group-hover:bg-[#f43b47] transition-colors" />
                     {label}
                   </button>
                 </li>
@@ -100,7 +100,7 @@ export default function Footer() {
                     <Icon className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div>
-                    <div className="text-white text-sm font-medium group-hover:text-teal-300 transition-colors">{label}</div>
+                    <div className="text-white text-sm font-medium group-hover:text-[#f43b47] transition-colors">{label}</div>
                     <div className="text-slate-500 text-[11px]">@excursion.society</div>
                   </div>
                   <ExternalLink className="w-3 h-3 text-slate-600 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -119,13 +119,13 @@ export default function Footer() {
                 { icon: MapPin, label: 'Location', value: 'Student Activity Center, Block B', href: null },
               ].map(({ icon: Icon, label, value, href }, i) => (
                 <div key={i} className="flex items-start gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-teal-500/10 group-hover:border-teal-500/30 transition-all">
-                    <Icon className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#f43b47]/10 group-hover:border-[#f43b47]/30 transition-all">
+                    <Icon className="w-3.5 h-3.5 text-[#f43b47]" />
                   </div>
                   <div>
                     <div className="text-slate-500 text-[10px] uppercase tracking-wider mb-0.5">{label}</div>
                     {href ? (
-                      <a href={href} className="text-slate-300 text-sm hover:text-teal-300 transition-colors">
+                      <a href={href} className="text-slate-300 text-sm hover:text-[#f43b47] transition-colors">
                         {value}
                       </a>
                     ) : (
@@ -159,7 +159,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f43b47] animate-pulse" />
               Accepting applications for 2025
             </span>
           </div>
