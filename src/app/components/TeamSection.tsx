@@ -1,14 +1,20 @@
 import { useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
-import { Users, Instagram, Linkedin } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'motion/react';
+import { Users, Instagram, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const TEAM_PHOTO = '/images/grouppick.jpg';
+const TEAM_PHOTOS = [
+  '/images/grouppick.jpg',
+  '/images/grouppick2 .jpeg',
+  '/images/grouppick3.jpeg',
+  '/images/grouppick4.jpeg',
+  '/images/grouppick5.jpeg.PNG'
+];
 
 const teamMembers = [
   {
     id: 1, name: 'Abdur Rehman', position: 'Male Head', dept: 'Computer Science', semester: '7th Sem',
     bio: 'Oversees all operations and leads the society with years of trekking experience across northern ranges.',
-    gradient: 'from-[#f43b47] to-[#453a94]', initials: 'AR', tag: '👑 Leadership',
+    gradient: 'from-[#870000] to-[#190A05]', initials: 'AR', tag: '👑 Leadership',
     image: '/images/AbdurRehman.jpg'
   },
   {
@@ -42,27 +48,21 @@ const teamMembers = [
     image: '/images/fawadkhan.jpg'
   },
   {
-    id: 7, name: 'Laiba', position: 'Female Head', dept: 'Civil Engineering', semester: '7th Sem',
-    bio: 'Ensuring female participants have a secure, comfortable, and empowering experience on trips.',
-    gradient: 'from-amber-400 to-slate-600', initials: 'LB', tag: '👑 Leadership',
-    image: '/images/laiba.jpg'
-  },
-  {
-    id: 8, name: 'Umar Khan', position: 'Media Head', dept: 'Psychology', semester: '5th Sem',
+    id: 7, name: 'Umar Khan', position: 'Media Head', dept: 'Psychology', semester: '5th Sem',
     bio: 'Capturing every moment brilliantly — responsible for photography and our digital presence.',
-    gradient: 'from-cyan-400 to-[#453a94]', initials: 'UK', tag: '📸 Media',
+    gradient: 'from-cyan-400 to-[#190A05]', initials: 'UK', tag: '📸 Media',
     image: '/images/umarkhan.jpg'
   },
 ];
 
 function TeamCard({ member, isActive, hasActive, onMouseEnter, onMouseLeave }: { member: typeof teamMembers[0], isActive: boolean, hasActive: boolean, onMouseEnter: () => void, onMouseLeave: () => void }) {
-  const scaleClass = isActive ? 'scale-[1.25] z-30 shadow-2xl border-[#f43b47]' : hasActive ? 'scale-90 opacity-50 z-0' : 'scale-100 opacity-100 hover:-translate-y-2 hover:border-[#f43b47]/20 z-10';
+  const scaleClass = isActive ? 'scale-[1.25] z-30 shadow-2xl border-[#870000]' : hasActive ? 'scale-90 opacity-50 z-0' : 'scale-100 opacity-100 hover:-translate-y-2 hover:border-[#870000]/20 z-10';
 
   return (
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={`group relative flex-shrink-0 w-72 bg-white rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:shadow-[#f43b47]/15 border border-slate-100 transition-all duration-500 cursor-pointer ${scaleClass}`}
+      className={`group relative flex-shrink-0 w-72 bg-white rounded-3xl p-6 shadow-sm hover:shadow-2xl hover:shadow-[#870000]/15 border border-slate-100 transition-all duration-500 cursor-pointer ${scaleClass}`}
     >
       {/* Gradient top strip */}
       <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-gradient-to-r ${member.gradient} opacity-60 group-hover:opacity-100 transition-opacity`} />
@@ -78,7 +78,7 @@ function TeamCard({ member, isActive, hasActive, onMouseEnter, onMouseLeave }: {
         </div>
         <div className={`flex-1 min-w-0 ${isActive ? 'w-full' : ''}`}>
           <h3 className={`text-slate-900 font-bold ${isActive ? 'text-xl' : 'text-base'} leading-tight transition-colors`}>{member.name}</h3>
-          <p className="text-[#453a94] text-xs font-semibold tracking-wide mt-0.5">{member.position}</p>
+          <p className="text-[#190A05] text-xs font-semibold tracking-wide mt-0.5">{member.position}</p>
           <span className="inline-block mt-1 text-[10px] bg-slate-50 text-slate-500 px-2 py-0.5 rounded-full border border-slate-200">
             {member.dept}
           </span>
@@ -91,7 +91,7 @@ function TeamCard({ member, isActive, hasActive, onMouseEnter, onMouseLeave }: {
       {/* Footer */}
       <div className="flex items-center justify-between">
         <span className="text-xs font-medium text-slate-400">{member.semester}</span>
-        <span className="text-xs bg-gradient-to-r from-[#f43b47]/10 to-[#453a94]/10 text-[#453a94] px-3 py-1 rounded-full border border-[#f43b47]/10 font-medium">
+        <span className="text-xs bg-gradient-to-r from-[#870000]/10 to-[#190A05]/10 text-[#190A05] px-3 py-1 rounded-full border border-[#870000]/10 font-medium">
           {member.tag}
         </span>
       </div>
@@ -101,7 +101,7 @@ function TeamCard({ member, isActive, hasActive, onMouseEnter, onMouseLeave }: {
 
 function SectionLabel({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center gap-2 bg-[#f43b47]/10 text-[#453a94] px-4 py-2 rounded-full border border-[#f43b47]/20 mb-4">
+    <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-4">
       <Users className="w-3.5 h-3.5" />
       <span className="text-xs font-semibold tracking-widest uppercase">{text}</span>
     </div>
@@ -112,6 +112,7 @@ export default function TeamSection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [activeCardId, setActiveCardId] = useState<number | null>(null);
+  const [imgIndex, setImgIndex] = useState(0);
   const doubled = [...teamMembers, ...teamMembers];
 
   // Hover functions
@@ -131,7 +132,7 @@ export default function TeamSection() {
           <SectionLabel text="Meet the Team" />
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 mt-2">
             The People Behind the{' '}
-            <span className="text-gradient-sunset">Adventure</span>
+            <span className="text-gradient-strain">Adventure</span>
           </h2>
           <p className="text-slate-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
             A passionate crew of students united by one dream — to explore every corner of
@@ -139,19 +140,55 @@ export default function TeamSection() {
           </p>
         </motion.div>
 
-        {/* Team Photo */}
+        {/* Team Photo Carousel */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative rounded-4xl overflow-hidden shadow-2xl shadow-slate-900/20 group"
+          className="relative rounded-4xl overflow-hidden shadow-2xl shadow-slate-900/20 group h-[450px] md:h-[580px] select-none"
           style={{ borderRadius: '2rem' }}
         >
-          <img
-            src={TEAM_PHOTO}
-            alt="Excursion Society Full Team"
-            className="w-full h-[450px] md:h-[580px] object-cover group-hover:scale-105 transition-transform duration-700"
-          />
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.img
+              key={imgIndex}
+              src={TEAM_PHOTOS[imgIndex]}
+              alt={`Excursion Society Full Team ${imgIndex + 1}`}
+              className="absolute inset-0 w-full h-[450px] md:h-[580px] object-cover group-hover:scale-105 transition-transform duration-700"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            />
+          </AnimatePresence>
+
+          {/* Navigation Controls */}
+          {TEAM_PHOTOS.length > 1 && (
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i - 1 + TEAM_PHOTOS.length) % TEAM_PHOTOS.length); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass flex items-center justify-center text-white z-20 hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0"
+              >
+                <ChevronLeft className="w-7 h-7" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); setImgIndex((i) => (i + 1) % TEAM_PHOTOS.length); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass flex items-center justify-center text-white z-20 hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0"
+              >
+                <ChevronRight className="w-7 h-7" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="absolute top-6 left-0 right-0 flex justify-center gap-2 z-20">
+                {TEAM_PHOTOS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setImgIndex(i); }}
+                    className={`h-1.5 rounded-full shadow-md transition-all duration-300 ${i === imgIndex ? 'w-8 bg-white' : 'w-2 bg-white/50 hover:bg-white/80'}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
 
@@ -165,8 +202,8 @@ export default function TeamSection() {
             >
               <div>
                 <div className="glass px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4">
-                  <span className="w-2 h-2 rounded-full bg-[#f43b47] animate-pulse" />
-                  <span className="text-[#f43b47] text-xs font-semibold tracking-widest uppercase">Session 2024–25</span>
+                  <span className="w-2 h-2 rounded-full bg-[#870000] animate-pulse" />
+                  <span className="text-[#870000] text-xs font-semibold tracking-widest uppercase">Session 2024–25</span>
                 </div>
                 <h3 className="text-white text-3xl md:text-4xl font-black">Excursion Society</h3>
                 <p className="text-white/70 mt-1 text-sm font-light">Your University</p>
@@ -189,7 +226,7 @@ export default function TeamSection() {
       </div>
 
       {/* --- Infinite Team Carousel --- */}
-      <div className="bg-gradient-to-br from-[#f43b47]/10 via-[#453a94]/10 to-slate-50 py-16 border-t border-[#f43b47]/10">
+      <div className="bg-gradient-to-br from-[#870000]/10 via-[#190A05]/10 to-slate-50 py-16 border-t border-[#870000]/10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

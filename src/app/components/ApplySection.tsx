@@ -51,7 +51,7 @@ export default function ApplySection() {
   };
 
   return (
-    <section id="apply" className="reveal-section py-24 bg-gradient-to-br from-slate-50 via-[#f43b47]/10 to-emerald-50">
+    <section id="apply" className="reveal-section py-24 bg-gradient-to-br from-slate-50 via-[#870000]/10 to-emerald-50">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div ref={ref} className="text-center mb-14">
@@ -60,13 +60,13 @@ export default function ApplySection() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#f43b47]/10 text-[#453a94] px-4 py-2 rounded-full border border-[#f43b47]/20 mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-4">
               <User className="w-3.5 h-3.5" />
               <span className="text-xs font-semibold tracking-widest uppercase">Join Our Society</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900">
               Become a{' '}
-              <span className="text-gradient-sunset">Member</span>
+              <span className="text-gradient-strain">Member</span>
             </h2>
             <p className="text-slate-500 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
               Fill out this form and we'll review your application. We welcome students from all departments who share a passion for adventure and exploration.
@@ -82,10 +82,10 @@ export default function ApplySection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-2 space-y-5"
           >
-            <div className="bg-gradient-to-br from-[#453a94] to-[#453a94] rounded-3xl p-7 text-white shadow-xl shadow-[#f43b47]/20">
-              <Mountain className="w-10 h-10 mb-4 text-[#f43b47]/20" />
+            <div className="bg-gradient-to-br from-[#190A05] to-[#190A05] rounded-3xl p-7 text-white shadow-xl shadow-[#870000]/20">
+              <Mountain className="w-10 h-10 mb-4 text-[#870000]/20" />
               <h3 className="text-xl font-black mb-2">Why Join Us?</h3>
-              <p className="text-[#f43b47]/10 text-sm leading-relaxed mb-6">
+              <p className="text-[#870000]/10 text-sm leading-relaxed mb-6">
                 Be part of Pakistan's most adventurous university society. Explore, connect, and grow with us.
               </p>
               {[
@@ -103,8 +103,8 @@ export default function ApplySection() {
                   transition={{ delay: 0.4 + i * 0.08 }}
                   className="flex items-center gap-3 mb-3"
                 >
-                  <CheckCircle className="w-4 h-4 text-[#f43b47] flex-shrink-0" />
-                  <span className="text-[#f43b47]/10 text-sm">{benefit}</span>
+                  <CheckCircle className="w-4 h-4 text-[#870000] flex-shrink-0" />
+                  <span className="text-[#870000]/10 text-sm">{benefit}</span>
                 </motion.div>
               ))}
             </div>
@@ -135,10 +135,10 @@ export default function ApplySection() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="glass-white rounded-4xl p-12 shadow-2xl text-center h-full flex flex-col items-center justify-center border border-[#f43b47]/20"
+                className="glass-white rounded-4xl p-12 shadow-2xl text-center h-full flex flex-col items-center justify-center border border-[#870000]/20"
                 style={{ borderRadius: '2rem' }}
               >
-                <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-[#f43b47] to-[#453a94] flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#f43b47]/40 rotate-12">
+                <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-[#870000] to-[#190A05] flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#870000]/40 rotate-12">
                   <CheckCircle className="w-12 h-12 text-white -rotate-12" />
                 </div>
                 <h3 className="text-slate-900 text-3xl font-black mb-4">Application Received! 🎉</h3>
@@ -161,7 +161,7 @@ export default function ApplySection() {
                 {/* Name & Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="relative group">
-                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#f43b47] transition-colors" />
+                    <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#870000] transition-colors" />
                     <input
                       type="text"
                       name="name"
@@ -169,11 +169,11 @@ export default function ApplySection() {
                       onChange={handleChange}
                       placeholder="Your full name"
                       required
-                      className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all font-medium"
+                      className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all font-medium"
                     />
                   </div>
                   <div className="relative group">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#f43b47] transition-colors" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#870000] transition-colors" />
                     <input
                       type="email"
                       name="email"
@@ -181,14 +181,14 @@ export default function ApplySection() {
                       onChange={handleChange}
                       placeholder="Email address"
                       required
-                      className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all font-medium"
+                      className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all font-medium"
                     />
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div className="relative group">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#f43b47] transition-colors" />
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-[#870000] transition-colors" />
                   <input
                     type="tel"
                     name="phone"
@@ -196,21 +196,21 @@ export default function ApplySection() {
                     onChange={handleChange}
                     placeholder="WhatsApp Number (+92 300 0000000)"
                     required
-                    className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all font-medium"
+                    className="w-full pl-11 pr-4 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all font-medium"
                   />
                 </div>
 
                 {/* Dept & Semester row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="relative group">
-                    <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none group-focus-within:text-[#f43b47] transition-colors" />
+                    <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none group-focus-within:text-[#870000] transition-colors" />
                     <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                     <select
                       name="department"
                       value={form.department}
                       onChange={handleChange}
                       required
-                      className="w-full pl-11 pr-10 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all appearance-none font-medium cursor-pointer"
+                      className="w-full pl-11 pr-10 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all appearance-none font-medium cursor-pointer"
                     >
                       <option value="" disabled className="text-slate-400">Select Department</option>
                       {departments.map((d) => (
@@ -225,7 +225,7 @@ export default function ApplySection() {
                       value={form.semester}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 pr-10 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all appearance-none font-medium cursor-pointer"
+                      className="w-full px-5 pr-10 py-3.5 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all appearance-none font-medium cursor-pointer"
                     >
                       <option value="" disabled className="text-slate-400">Current Semester</option>
                       {semesters.map((s) => (
@@ -247,8 +247,8 @@ export default function ApplySection() {
                         type="button"
                         onClick={() => toggleSkill(value)}
                         className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-300 border ${selectedSkills.includes(value)
-                            ? 'bg-gradient-to-tr from-[#f43b47] to-[#f43b47] text-white border-transparent shadow-md shadow-[#f43b47]/30 -translate-y-0.5'
-                            : 'bg-white/60 text-slate-600 border-slate-200/60 hover:border-[#f43b47] hover:bg-[#f43b47]/10 hover:text-[#453a94] hover:-translate-y-0.5'
+                            ? 'bg-gradient-to-tr from-[#870000] to-[#870000] text-white border-transparent shadow-md shadow-[#870000]/30 -translate-y-0.5'
+                            : 'bg-white/60 text-slate-600 border-slate-200/60 hover:border-[#870000] hover:bg-[#870000]/10 hover:text-[#190A05] hover:-translate-y-0.5'
                           }`}
                       >
                         {label}
@@ -266,7 +266,7 @@ export default function ApplySection() {
                     rows={3}
                     placeholder="Why do you want to join Excursion Society?"
                     required
-                    className="w-full px-5 py-4 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all resize-none font-medium"
+                    className="w-full px-5 py-4 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all resize-none font-medium"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ export default function ApplySection() {
                     onChange={handleChange}
                     rows={2}
                     placeholder="Previous tour / adventure experience (optional)"
-                    className="w-full px-5 py-4 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#f43b47] focus:bg-white focus:ring-4 focus:ring-[#f43b47]/10 transition-all resize-none font-medium"
+                    className="w-full px-5 py-4 bg-white/50 border border-slate-200/60 rounded-2xl text-slate-800 text-sm placeholder:text-slate-400 focus:outline-none focus:border-[#870000] focus:bg-white focus:ring-4 focus:ring-[#870000]/10 transition-all resize-none font-medium"
                   />
                 </div>
 
@@ -287,7 +287,7 @@ export default function ApplySection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-[#f43b47] via-[#453a94] to-[#453a94] text-white rounded-2xl font-black text-sm shadow-[0_0_40px_rgba(20,184,166,0.3)] hover:shadow-[0_0_60px_rgba(20,184,166,0.5)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                    className="group w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-[#870000] via-[#190A05] to-[#190A05] text-white rounded-2xl font-black text-sm shadow-[0_0_40px_rgba(20,184,166,0.3)] hover:shadow-[0_0_60px_rgba(20,184,166,0.5)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {loading ? (
                       <>

@@ -72,10 +72,10 @@ export default function UpcomingTourSection() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url('${UPCOMING_IMAGE}')` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#453a94]/95 via-slate-950/90 to-slate-950/80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#190A05]/95 via-slate-950/90 to-slate-950/80" />
 
       {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#f43b47]/10 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#870000]/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-slate-500/10 blur-[80px] pointer-events-none" />
 
       <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
@@ -86,13 +86,13 @@ export default function UpcomingTourSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full border border-[#f43b47]/30 mb-4">
+          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full border border-[#870000]/30 mb-4">
             <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
             <span className="text-slate-300 text-xs font-semibold tracking-widest uppercase">Now Booking Open</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white">
             Upcoming{' '}
-            <span className="text-gradient-sunset">Excursion</span>
+            <span className="text-gradient-strain">Excursion</span>
           </h2>
         </motion.div>
 
@@ -113,12 +113,12 @@ export default function UpcomingTourSection() {
             <h3 className="text-white text-3xl md:text-4xl font-black mb-2 leading-tight">
               {upcomingTour.name}
             </h3>
-            <p className="text-[#f43b47] text-sm font-medium mb-6">{upcomingTour.subtitle}</p>
+            <p className="text-[#870000] text-sm font-medium mb-6">{upcomingTour.subtitle}</p>
 
             {/* Meta info */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { icon: MapPin, label: 'Destination', value: upcomingTour.location, color: 'text-[#f43b47]' },
+                { icon: MapPin, label: 'Destination', value: upcomingTour.location, color: 'text-[#870000]' },
                 { icon: Calendar, label: 'Dates', value: upcomingTour.fullDate, color: 'text-slate-400' },
                 { icon: Clock, label: 'Deadline', value: upcomingTour.deadline, color: 'text-amber-400' },
                 { icon: DollarSign, label: 'Fee Per Person', value: upcomingTour.price, color: 'text-cyan-400' },
@@ -137,14 +137,14 @@ export default function UpcomingTourSection() {
             <div className="mb-8">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2 text-white/70 text-xs">
-                  <Users className="w-3.5 h-3.5 text-[#f43b47]" />
+                  <Users className="w-3.5 h-3.5 text-[#870000]" />
                   <span>{spotsFilled}/{upcomingTour.totalSpots} spots filled</span>
                 </div>
                 <span className="text-slate-400 font-bold text-xs">{upcomingTour.spotsLeft} remaining!</span>
               </div>
               <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-[#f43b47] via-cyan-400 to-slate-400 rounded-full"
+                  className="h-full bg-gradient-to-r from-[#870000] via-cyan-400 to-slate-400 rounded-full"
                   initial={{ width: 0 }}
                   animate={inView ? { width: `${pct}%` } : {}}
                   transition={{ duration: 1.5, delay: 0.5, ease: 'easeOut' }}
@@ -163,7 +163,7 @@ export default function UpcomingTourSection() {
                   transition={{ delay: 0.4 + i * 0.07 }}
                   className="flex items-center gap-2.5 text-white/80 text-sm"
                 >
-                  <CheckCircle className="w-4 h-4 text-[#f43b47] flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#870000] flex-shrink-0" />
                   {h}
                 </motion.div>
               ))}
@@ -183,7 +183,7 @@ export default function UpcomingTourSection() {
           </div>
 
           {/* Right: Countdown + Includes */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-[#453a94]/60 to-slate-900/80 p-8 flex flex-col gap-8 backdrop-blur-md border-l border-white/10">
+          <div className="lg:col-span-2 bg-gradient-to-br from-[#190A05]/60 to-slate-900/80 p-8 flex flex-col gap-8 backdrop-blur-md border-l border-white/10">
             {/* Countdown */}
             <div>
               <p className="text-white/50 text-xs tracking-widest uppercase font-medium mb-4 text-center">
@@ -213,7 +213,7 @@ export default function UpcomingTourSection() {
                     transition={{ delay: 0.6 + i * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#f43b47] to-[#453a94] flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#870000] to-[#190A05] flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-3.5 h-3.5 text-white" />
                     </div>
                     <span className="text-white/80 text-sm font-medium">{item}</span>
@@ -228,7 +228,7 @@ export default function UpcomingTourSection() {
             <div className="text-center">
               <p className="text-white/40 text-xs mb-1">All-Inclusive Package</p>
               <p className="text-white font-black text-3xl">{upcomingTour.price}</p>
-              <p className="text-[#f43b47] text-xs mt-1">Per Person · Pay after confirmation</p>
+              <p className="text-[#870000] text-xs mt-1">Per Person · Pay after confirmation</p>
             </div>
           </div>
         </motion.div>

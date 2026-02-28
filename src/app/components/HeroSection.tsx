@@ -11,7 +11,7 @@ const socialLinks = [
 const HERO_BG = 'https://images.unsplash.com/photo-1673505413397-0cd0dc4f5854?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920';
 
 const floatingIcons = [
-  { icon: Compass, top: '20%', left: '82%', size: 'w-9 h-9', color: 'text-[#f43b47]', xFactor: 55, yFactor: 35, delay: 0 },
+  { icon: Compass, top: '20%', left: '82%', size: 'w-9 h-9', color: 'text-[#870000]', xFactor: 55, yFactor: 35, delay: 0 },
   { icon: Mountain, top: '35%', left: '8%', size: 'w-7 h-7', color: 'text-slate-300', xFactor: -45, yFactor: 30, delay: 0.1 },
   { icon: MapPin, top: '18%', left: '22%', size: 'w-6 h-6', color: 'text-yellow-300', xFactor: -60, yFactor: -40, delay: 0.2 },
   { icon: Star, top: '55%', left: '78%', size: 'w-5 h-5', color: 'text-amber-300', xFactor: 40, yFactor: -55, delay: 0.3 },
@@ -19,7 +19,7 @@ const floatingIcons = [
 ];
 
 const stats = [
-  { icon: Map, value: '25+', label: 'Tours Done', color: 'text-[#f43b47]' },
+  { icon: Map, value: '25+', label: 'Tours Done', color: 'text-[#870000]' },
   { icon: Users, value: '300+', label: 'Members', color: 'text-slate-400' },
   { icon: Mountain, value: '18+', label: 'Destinations', color: 'text-amber-400' },
   { icon: Award, value: '3+', label: 'Years', color: 'text-cyan-400' },
@@ -59,7 +59,7 @@ export default function HeroSection() {
       />
 
       {/* Sunset Orange & Gigas gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#453a94]/80 via-slate-900/70 to-[#f43b47]/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#190A05]/80 via-slate-900/70 to-[#870000]/30" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(0,0,0,0.4)_100%)]" />
 
@@ -158,7 +158,7 @@ export default function HeroSection() {
             <Sparkles className="w-4 h-4" />
           </motion.div>
           <motion.div
-            className="absolute -bottom-2 -left-4 text-[#453a94]"
+            className="absolute -bottom-2 -left-4 text-[#190A05]"
             animate={{ scale: [0, 1, 0], opacity: [0, 1, 0], y: -10, x: -15 }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "easeOut" }}
           >
@@ -169,8 +169,8 @@ export default function HeroSection() {
           <svg width="0" height="0" className="absolute">
             <defs>
               <linearGradient id="busGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop stopColor="#f43b47" offset="0%" />
-                <stop stopColor="#453a94" offset="100%" />
+                <stop stopColor="#870000" offset="0%" />
+                <stop stopColor="#190A05" offset="100%" />
               </linearGradient>
             </defs>
           </svg>
@@ -182,7 +182,7 @@ export default function HeroSection() {
           />
           {/* Exhaust/Speed lines */}
           <motion.div
-            className="absolute top-[60%] right-[90%] w-10 h-1 bg-gradient-to-l from-[#f43b47]/80 to-transparent rounded-full"
+            className="absolute top-[60%] right-[90%] w-10 h-1 bg-gradient-to-l from-[#870000]/80 to-transparent rounded-full"
             animate={{ width: ['0px', '50px', '0px'], opacity: [0, 1, 0], x: [0, -30, -60] }}
             transition={{ duration: 0.5, repeat: Infinity, ease: "linear" }}
           />
@@ -198,12 +198,12 @@ export default function HeroSection() {
       >
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2.5 glass px-5 py-2.5 rounded-full mb-8 border border-[#f43b47]/40">
-          <span className="w-2 h-2 rounded-full bg-[#f43b47] animate-pulse" />
-          <span className="text-[#f43b47] text-xs font-semibold tracking-[0.2em] uppercase">
-            University Excursion Society
+        <div className="inline-flex items-center gap-2.5 glass px-5 py-2.5 rounded-full mb-8 border border-[#870000]/40">
+          <span className="w-2 h-2 rounded-full bg-[#870000] animate-pulse" />
+          <span className="text-[#870000] text-xs font-semibold tracking-[0.2em] uppercase">
+            CUSIT Excursion Society
           </span>
-          <span className="w-2 h-2 rounded-full bg-[#453a94] animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <span className="w-2 h-2 rounded-full bg-[#190A05] animate-pulse" style={{ animationDelay: '0.5s' }} />
         </div>
 
         {/* Main Heading with Line Animation */}
@@ -211,7 +211,7 @@ export default function HeroSection() {
           <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-white leading-[0.9] tracking-tight relative z-10">
             EXPLORE.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f43b47] to-[#453a94]">DISCOVER.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#870000] to-[#190A05]">DISCOVER.</span>
             <br />
             CONQUER.
           </h1>
@@ -228,9 +228,9 @@ export default function HeroSection() {
             />
             <defs>
               <linearGradient id="paint0_linear" x1="0" y1="5" x2="200" y2="5" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#f43b47" stopOpacity="0" />
-                <stop offset="0.5" stopColor="#f43b47" />
-                <stop offset="1" stopColor="#453a94" stopOpacity="0" />
+                <stop stopColor="#870000" stopOpacity="0" />
+                <stop offset="0.5" stopColor="#870000" />
+                <stop offset="1" stopColor="#190A05" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
@@ -238,7 +238,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <p className="text-white/65 text-base md:text-xl max-w-2xl mb-10 font-light leading-relaxed">
-          Pakistan's most adventurous university society — turning campus life into
+          Most adventurous society of cusit  — turning campus life into
           extraordinary journeys across mountains, valleys, glaciers and beyond.
         </p>
 
@@ -246,7 +246,7 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
           <button
             onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group px-8 py-4 bg-gradient-to-r from-[#f43b47] to-[#453a94] text-white rounded-full font-semibold tracking-wide hover:shadow-2xl hover:shadow-[#f43b47]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center"
+            className="group px-8 py-4 bg-gradient-to-r from-[#870000] to-[#190A05] text-white rounded-full font-semibold tracking-wide hover:shadow-2xl hover:shadow-[#870000]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center"
           >
             <Mountain className="w-4 h-4 group-hover:translate-y-[-2px] transition-transform" />
             Explore Our Tours

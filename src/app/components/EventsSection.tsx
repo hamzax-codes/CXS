@@ -10,8 +10,8 @@ const tours = [
     date: 'October 2024',
     participants: 42,
     duration: '5 Days',
-    gradient: 'from-[#f43b47] to-emerald-600',
-    tagColor: 'bg-[#f43b47]/10 text-[#453a94]',
+    gradient: 'from-[#870000] to-emerald-600',
+    tagColor: 'bg-[#870000]/10 text-[#190A05]',
     coverImage: 'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
       'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
@@ -67,7 +67,7 @@ const tours = [
     date: 'May 2024',
     participants: 28,
     duration: '2 Days',
-    gradient: 'from-slate-500 to-[#453a94]',
+    gradient: 'from-slate-500 to-[#190A05]',
     tagColor: 'bg-slate-100 text-slate-700',
     coverImage: 'https://images.unsplash.com/photo-1699950856282-8a3922a224a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
@@ -103,7 +103,7 @@ const tours = [
     date: 'September 2024',
     participants: 22,
     duration: '6 Days',
-    gradient: 'from-[#453a94]/100 to-[#453a94]',
+    gradient: 'from-[#190A05]/100 to-[#190A05]',
     tagColor: 'bg-cyan-100 text-cyan-700',
     coverImage: 'https://images.unsplash.com/photo-1715338385682-be15ecc215cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
@@ -204,7 +204,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
           {/* Close */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-[#f43b47]/10 hover:text-[#f43b47] flex items-center justify-center transition-colors z-10"
+            className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-[#870000]/10 hover:text-[#870000] flex items-center justify-center transition-colors z-10"
           >
             <X className="w-4 h-4" />
           </button>
@@ -225,7 +225,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
               { icon: Users, label: `${tour.participants} Members` },
             ].map(({ icon: Icon, label }, i) => (
               <span key={i} className="inline-flex items-center gap-1.5 text-xs bg-slate-50 text-slate-600 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-                <Icon className="w-3.5 h-3.5 text-[#f43b47]" />
+                <Icon className="w-3.5 h-3.5 text-[#870000]" />
                 {label}
               </span>
             ))}
@@ -237,7 +237,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
           {/* Highlights */}
           <div>
             <h4 className="text-slate-900 font-bold text-sm mb-3 flex items-center gap-2">
-              <Map className="w-4 h-4 text-[#f43b47]" />
+              <Map className="w-4 h-4 text-[#870000]" />
               Trip Highlights
             </h4>
             <div className="grid grid-cols-1 gap-2">
@@ -305,7 +305,7 @@ function TourCard({ tour, onClick }: { tour: Tour; onClick: () => void }) {
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-slate-900 font-bold text-base mb-1 group-hover:text-[#453a94] transition-colors">
+        <h3 className="text-slate-900 font-bold text-base mb-1 group-hover:text-[#190A05] transition-colors">
           {tour.name}
         </h3>
         <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
