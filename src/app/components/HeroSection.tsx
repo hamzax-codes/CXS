@@ -13,7 +13,7 @@ const socialLinks = [
   { label: 'WhatsApp', icon: WhatsAppIcon, href: 'https://wa.me/923188368361', color: 'text-green-400', glow: 'hover:shadow-[0_0_20px_rgba(34,197,94,0.9)] hover:scale-125' },
 ];
 
-const HERO_BG = 'https://plus.unsplash.com/premium_photo-1665311551953-5ee597cb9d47?q=80&w=1920&auto=format&fit=crop';
+const HERO_BG = '/images/image.jpg';
 
 const floatingIcons = [
   { icon: Compass, top: '20%', left: '82%', size: 'w-9 h-9', color: 'text-[#870000]', xFactor: 55, yFactor: 35, delay: 0 },
@@ -34,15 +34,6 @@ export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [loaded, setLoaded] = useState(false);
-  const [bgLoaded, setBgLoaded] = useState(false);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = HERO_BG;
-    img.onload = () => setBgLoaded(true);
-    img.onerror = () => setBgLoaded(true); // show anyway on error
-    if (img.complete) setBgLoaded(true); // already cached
-  }, []);
 
   useEffect(() => {
     setLoaded(true);
@@ -67,18 +58,9 @@ export default function HeroSection() {
       {/* Background image with subtle parallax */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center scale-110"
-        style={{
-          backgroundImage: bgLoaded ? `url('${HERO_BG}')` : 'none',
-          opacity: bgLoaded ? 1 : 0,
-          transition: 'opacity 0.8s ease',
-        }}
+        style={{ backgroundImage: `url('${HERO_BG}')` }}
         animate={{ x: mouse.x * -15, y: mouse.y * -10 }}
         transition={springConfig}
-      />
-      {/* Dark fallback shown while bg image loads */}
-      <div
-        className="absolute inset-0 bg-slate-950 transition-opacity duration-700"
-        style={{ opacity: bgLoaded ? 0 : 1, pointerEvents: 'none' }}
       />
 
       {/* Sunset Orange & Gigas gradient overlays */}

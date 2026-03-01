@@ -112,7 +112,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-4">
               {[
-                { icon: Mail, label: 'Email', value: 'excursion@university.edu.pk', href: 'mailto:excursion@university.edu.pk' },
+                { icon: Mail, label: 'Email', value: 'muqeebamir999@gmail.com', href: 'mailto:muqeebamir999@gmail.com' },
                 { icon: Phone, label: 'WhatsApp', value: '+92 318 836 8361', href: 'https://wa.me/923188368361' },
                 { icon: MapPin, label: 'Location', value: 'SLC Block I, CUSIT Peshawar', href: null },
               ].map(({ icon: Icon, label, value, href }, i) => (
@@ -149,7 +149,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
           <div className="flex items-center gap-2">
-            <span>© 2025 Excursion Society · Your University</span>
+            <span>© 2026 Excursion Society · CUSIT Peshawar</span>
             <span className="text-white/10">|</span>
             <span className="flex items-center gap-1">
               Made with <Heart className="w-3 h-3 text-rose-500 inline fill-rose-500" /> for adventurers
@@ -158,7 +158,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#870000] animate-pulse" />
-              Accepting applications for 2025
+              Accepting applications for 2026
             </span>
           </div>
         </div>

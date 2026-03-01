@@ -10,11 +10,9 @@ const TEAM_PHOTOS = [
   '/images/grouppick5.jpg'
 ];
 
-// Preload all team photos immediately
-TEAM_PHOTOS.forEach((src) => {
-  const img = new Image();
-  img.src = src;
-});
+// Preload only the first photo immediately (rest load when section is visible)
+const _preload = new Image();
+_preload.src = TEAM_PHOTOS[0];
 
 const teamMembers = [
   {
@@ -77,7 +75,7 @@ function TeamCard({ member, isActive, hasActive, onMouseEnter, onMouseLeave }: {
       <div className={`flex ${isActive ? 'flex-col items-center text-center' : 'items-start'} gap-3 mb-3 transition-all duration-500`}>
         <div className={`${isActive ? 'w-16 h-16 mb-1' : 'w-10 h-10 group-hover:scale-110 group-hover:rotate-3'} rounded-xl bg-gradient-to-br ${member.gradient} flex items-center justify-center overflow-hidden shadow-md transition-all duration-500 flex-shrink-0`}>
           {member.image ? (
-            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+            <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover" />
           ) : (
             <span className="text-white font-black text-sm">{member.initials}</span>
           )}
@@ -119,6 +117,15 @@ export default function TeamSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [imgIndex, setImgIndex] = useState(0);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  // Preload remaining photos only when section comes into view
+  useEffect(() => {
+    if (!inView) return;
+    TEAM_PHOTOS.slice(1).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [inView]);
 
   return (
     <section id="team" className="reveal-section pt-6 pb-0 overflow-hidden">
@@ -162,7 +169,7 @@ export default function TeamSection() {
               <img
                 src={TEAM_PHOTOS[imgIndex]}
                 aria-hidden="true"
-                loading="eager"
+                loading={imgIndex === 0 ? 'eager' : 'lazy'}
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ filter: 'blur(8px) brightness(0.75)', transform: 'scale(1.05)' }}
               />
@@ -170,7 +177,7 @@ export default function TeamSection() {
               <img
                 src={TEAM_PHOTOS[imgIndex]}
                 alt={`Excursion Society Full Team ${imgIndex + 1}`}
-                loading="eager"
+                loading={imgIndex === 0 ? 'eager' : 'lazy'}
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </motion.div>
@@ -294,7 +301,7 @@ export default function TeamSection() {
                   }}
                 >
                   {/* --- Profile Card --- */}
-                  <div className={`w-56 bg-white rounded-2xl shadow-md border-2 overflow-hidden flex flex-col transition-colors duration-300 ${
+                  <div className={`w-56 h-[340px] bg-white rounded-2xl shadow-md border-2 overflow-hidden flex flex-col transition-colors duration-300 ${
                     isHovered ? 'border-[#870000] shadow-[#870000]/30 shadow-xl' : 'border-slate-100'
                   }`}>
 
@@ -304,6 +311,7 @@ export default function TeamSection() {
                         <img
                           src={member.image}
                           alt=""
+                          loading="lazy"
                           className="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px]"
                         />
                       ) : (
@@ -317,7 +325,7 @@ export default function TeamSection() {
                     <div className="flex justify-center -mt-12 relative z-10 px-4">
                       <div className={`w-[88px] h-[88px] rounded-xl border-2 border-white shadow-lg overflow-hidden bg-gradient-to-br ${member.gradient} flex items-center justify-center flex-shrink-0`}>
                         {member.image ? (
-                          <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                          <img src={member.image} alt={member.name} loading="lazy" className="w-full h-full object-cover" />
                         ) : (
                           <span className="text-white font-black text-xl">{member.initials}</span>
                         )}
@@ -329,7 +337,7 @@ export default function TeamSection() {
                       <h3 className="text-slate-900 font-bold text-sm leading-tight">{member.name}</h3>
                       <p className="text-[#870000] text-xs font-semibold">{member.position}</p>
                       <span className="text-[10px] bg-slate-50 text-slate-500 px-2 py-0.5 rounded-full border border-slate-200">{member.dept}</span>
-                      <p className="text-slate-500 text-[11px] leading-relaxed mt-1 flex-1">{member.bio}</p>
+                      <p className="text-slate-500 text-[11px] leading-relaxed mt-1 flex-1 line-clamp-3">{member.bio}</p>
                       <div className="flex items-center justify-between w-full pt-2 border-t border-slate-100 mt-1">
                         <span className="text-[10px] text-slate-400">{member.semester}</span>
                         <span className="text-[10px] bg-gradient-to-r from-[#870000]/10 to-[#190A05]/10 text-[#190A05] px-2 py-0.5 rounded-full border border-[#870000]/10 font-medium">{member.tag}</span>

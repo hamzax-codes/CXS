@@ -112,7 +112,7 @@ export default function UpcomingTourSection() {
             transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
             className="w-36 h-36"
           >
-            <img src="/images/bg_removed_logo.png" alt="Excursion Society" className="w-full h-full object-contain" />
+            <img src="/images/bg_removed_logo.png" alt="Excursion Society" loading="lazy" className="w-full h-full object-contain" />
           </motion.div>
 
           <div>

@@ -123,9 +123,10 @@ type Tour = typeof tours[0];
 
 function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
   const [imgIndex, setImgIndex] = useState(0);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
-  const prev = () => setImgIndex((i) => (i - 1 + tour.gallery.length) % tour.gallery.length);
-  const next = () => setImgIndex((i) => (i + 1) % tour.gallery.length);
+  const prev = () => { setImgIndex((i) => (i - 1 + tour.gallery.length) % tour.gallery.length); setImgLoaded(false); };
+  const next = () => { setImgIndex((i) => (i + 1) % tour.gallery.length); setImgLoaded(false); };
 
   return (
     <motion.div
@@ -149,14 +150,19 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
       >
         {/* Image Gallery */}
         <div className="relative w-full md:w-1/2 h-64 md:h-auto flex-shrink-0 bg-slate-900">
+          {/* Loading skeleton */}
+          {!imgLoaded && (
+            <div className="absolute inset-0 bg-slate-800 animate-pulse z-10" />
+          )}
           <AnimatePresence mode="sync">
             <motion.img
               key={imgIndex}
               src={tour.gallery[imgIndex]}
               alt={tour.name}
+              onLoad={() => setImgLoaded(true)}
               className="w-full h-full object-cover absolute inset-0"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: imgLoaded ? 1 : 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
             />
@@ -183,7 +189,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
                 {tour.gallery.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => setImgIndex(i)}
+                    onClick={() => { setImgIndex(i); setImgLoaded(false); }}
                     className={`h-1.5 rounded-full transition-all ${i === imgIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/50'}`}
                   />
                 ))}
@@ -270,6 +276,7 @@ function TourCard({ tour, onClick }: { tour: Tour; onClick: () => void }) {
         <img
           src={tour.coverImage}
           alt={tour.name}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

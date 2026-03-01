@@ -33,10 +33,12 @@ export default function Navbar() {
   }, []);
 
   const scrollTo = (href: string) => {
-    const id = href.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
+    setTimeout(() => {
+      const id = href.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
   };
 
   return (
