@@ -5,60 +5,62 @@ import { MapPin, Calendar, Users, Clock, X, ChevronLeft, ChevronRight, Tag, Map 
 const tours = [
   {
     id: 1,
-    name: 'Hunza Valley Expedition',
-    location: 'Gilgit-Baltistan',
-    date: 'October 2024',
-    participants: 42,
-    duration: '5 Days',
-    gradient: 'from-[#870000] to-emerald-600',
+    name: 'Capital Chronicles',
+    location: 'Islamabad, Pakistan',
+    date: '21 Nov 2025',
+    participants: 100,
+    duration: '1 Day',
+    gradient: 'from-[#870000] to-[#190A05]',
     tagColor: 'bg-[#870000]/10 text-[#190A05]',
-    coverImage: 'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
+    coverImage: 'https://images.unsplash.com/photo-1646514323937-e49758815da7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
-      'https://images.unsplash.com/photo-1669006270959-aa7f7f0695d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1673505413397-0cd0dc4f5854?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1715338385682-be15ecc215cb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM.jpeg',
+      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(1).jpeg',
+      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(2).jpeg',
+      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(3).jpeg',
     ],
-    description: 'An unforgettable 5-day expedition through the breathtaking Hunza Valley — exploring ancient forts, serene lakes, and the majestic Karakoram Highway. A cultural and natural spectacle unlike any other.',
-    highlights: ['Altit & Baltit Forts', 'Eagle\'s Nest Viewpoint', 'Attabad Lake Boat Ride', 'Passu Cones Hike'],
-    tags: ['Mountains', 'Culture', 'Heritage'],
+    description: 'The Excursion Society successfully organized a trip for female members to Islamabad, featuring visits to Trail 5, Lake View Park, and Centaurus. The outing provided a refreshing break and opportunities for networking in a scenic setting — participants enjoyed the natural beauty and engaging activities, making it a truly memorable experience.',
+    highlights: ['Trail 5 Hike', 'Lake View Park', 'Centaurus Mall', 'Networking & Bonding'],
+    tags: ['Female Trip', 'City', 'Nature'],
   },
   {
     id: 2,
-    name: 'Naran–Kaghan Adventure',
-    location: 'Khyber Pakhtunkhwa',
-    date: 'August 2024',
-    participants: 38,
-    duration: '4 Days',
-    gradient: 'from-slate-500 to-blue-700',
-    tagColor: 'bg-slate-100 text-slate-700',
-    coverImage: 'https://images.unsplash.com/photo-1658817261180-2940a80fd019?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
+    name: 'Miranjani Ascent',
+    location: 'Nathiagali, KPK',
+    date: '14 Dec 2025',
+    participants: 90,
+    duration: '1 Day',
+    gradient: 'from-slate-600 to-emerald-800',
+    tagColor: 'bg-emerald-100 text-emerald-800',
+    coverImage: '/images/T2/cover%20pic.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1658817261180-2940a80fd019?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1770240090579-8131c5c40a98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1592613824285-2cdf3ed61761?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/T2/trip2/IMG_6857.JPG.jpeg',
+      '/images/T2/trip2/IMG_9023.jpeg',
+      '/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.18.39%20AM.jpeg',
+      '/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.19.06%20AM.jpeg',
     ],
-    description: 'From the crystal-clear waters of Lake Saif ul Malook to the towering Babusar Top, this 4-day adventure through Naran and Kaghan was packed with natural wonders and thrilling drives.',
-    highlights: ['Lake Saif ul Malook', 'Babusar Top (4,173m)', 'Lulusar Lake', 'Shogran Valley'],
-    tags: ['Lakes', 'Trekking', 'Scenic'],
+    description: 'The Excursion Society organized a trek for male members to Miranjani — the highest peak in Nathiagali. Participants pushed their limits, soaked in breathtaking panoramic views, and forged strong bonds in one of KPK\'s most iconic alpine settings.',
+    highlights: ['Miranjani Summit Trek', 'Nathiagali Pine Trails', 'Panoramic Peak Views', 'Team Bonding'],
+    tags: ['Male Trip', 'Trekking', 'Summit'],
   },
   {
     id: 3,
-    name: 'Swat Valley Retreat',
-    location: 'Swat, KPK',
-    date: 'June 2024',
-    participants: 55,
-    duration: '3 Days',
-    gradient: 'from-emerald-500 to-green-700',
-    tagColor: 'bg-emerald-100 text-emerald-700',
-    coverImage: 'https://images.unsplash.com/photo-1602599693481-cc4dc8106de5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
+    name: 'Pipeline Chronicles',
+    location: 'Nathiagali & Donga Gali, KPK',
+    date: '21 Dec 2025',
+    participants: 120,
+    duration: '1 Day',
+    gradient: 'from-green-700 to-emerald-900',
+    tagColor: 'bg-emerald-100 text-emerald-800',
+    coverImage: '/images/T3/cover%20image.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1602599693481-cc4dc8106de5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1743687034924-77e449e8ba9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
-      'https://images.unsplash.com/photo-1770240090579-8131c5c40a98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200',
+      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.27.52%20AM.jpeg',
+      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.01%20AM.jpeg',
+      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.10%20AM.jpeg',
     ],
-    description: 'Swat — the Switzerland of Pakistan. Three days immersed in lush green valleys, rushing rivers, and historic Buddhist ruins. A perfect blend of nature, history, and refreshment.',
-    highlights: ['Malam Jabba Snow Point', 'Mingora Bazaar', 'Butkara Stupa', 'Swat River Crossing'],
-    tags: ['Greenery', 'History', 'Relaxing'],
+    description: 'The Excursion Society organized a departmental trip for pharmacy students through the scenic pine forests of Nathiagali and Donga Gali — a perfect blend of outdoor adventure and academic enrichment. Students explored the lush highland trails, soaked in the crisp mountain air, and built lasting bonds amidst one of KPK\'s most beautiful hill station routes.',
+    highlights: ['Nathiagali Pine Trails', 'Donga Gali View Point', 'Flora & Fauna Exploration', 'Departmental Bonding'],
+    tags: ['Departmental', 'Trekking', 'Nature'],
   },
   {
     id: 4,
@@ -147,16 +149,16 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
       >
         {/* Image Gallery */}
         <div className="relative w-full md:w-1/2 h-64 md:h-auto flex-shrink-0 bg-slate-900">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="sync">
             <motion.img
               key={imgIndex}
               src={tour.gallery[imgIndex]}
               alt={tour.name}
-              className="w-full h-full object-cover"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.3 }}
+              className="w-full h-full object-cover absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
             />
           </AnimatePresence>
           {/* Gradient */}
@@ -200,7 +202,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-7">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-7">
           {/* Close */}
           <button
             onClick={onClose}
@@ -215,7 +217,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
             {tour.location}
           </div>
 
-          <h2 className="text-2xl font-black text-slate-900 mb-3">{tour.name}</h2>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">{tour.name}</h2>
 
           {/* Info pills */}
           <div className="flex flex-wrap gap-3 mb-5">
@@ -258,7 +260,7 @@ function TourModal({ tour, onClose }: { tour: Tour; onClose: () => void }) {
 function TourCard({ tour, onClick }: { tour: Tour; onClick: () => void }) {
   return (
     <motion.div
-      className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-slate-900/15 border border-slate-100 cursor-pointer"
+      className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-[#870000]/30 border border-slate-100 cursor-pointer"
       whileHover={{ y: -8, scale: 1.01 }}
       transition={{ type: 'spring', damping: 20, stiffness: 200 }}
       onClick={onClick}
@@ -268,7 +270,7 @@ function TourCard({ tour, onClick }: { tour: Tour; onClick: () => void }) {
         <img
           src={tour.coverImage}
           alt={tour.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover transition-transform duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
@@ -333,32 +335,32 @@ export default function EventsSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="events" className="reveal-section py-24 bg-gradient-to-br from-slate-50 via-slate-50/30 to-amber-50/30">
+    <section id="events" className="reveal-section pt-6 pb-24 bg-gradient-to-br from-slate-50 via-slate-50/30 to-amber-50/30">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div ref={ref} className="text-center mb-14">
+        <div ref={ref} className="text-center mb-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 bg-slate-50 text-slate-700 px-4 py-2 rounded-full border border-slate-200 mb-4">
+            <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-2">
               <MapPin className="w-3.5 h-3.5" />
               <span className="text-xs font-semibold tracking-widest uppercase">Past Expeditions</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900">
-              Where We've{' '}
-              <span className="text-gradient-warm">Been</span>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900 mt-1">
+              Trails We've{' '}
+              <span className="text-gradient-warm">Conquered</span>
             </h2>
-            <p className="text-slate-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-              Click on any card to explore photos and stories from our expeditions
+            <p className="text-slate-500 mt-1 max-w-xl mx-auto text-xs leading-relaxed">
+              Every expedition, a story. Click a card to relive the journey.
             </p>
           </motion.div>
         </div>
 
         {/* Tour Grid with Collision Effect */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-hidden p-4 -m-4">
-          {tours.map((tour, i) => (
+          {tours.slice(0, 3).map((tour, i) => (
             <motion.div
               key={tour.id}
               initial={{ opacity: 0, x: i % 2 === 0 ? -150 : 150 }}

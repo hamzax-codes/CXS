@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Compass, Mountain, MapPin, Star, ChevronDown, Users, Map, Award, Tent, Instagram, Facebook, MessageCircle, Bus, Bird, Cloud, Sparkles } from 'lucide-react';
+import { Compass, Mountain, MapPin, Star, ChevronDown, Users, Map, Award, Tent, Instagram, Facebook, Bus, Bird, Cloud, Sparkles } from 'lucide-react';
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
 
 const socialLinks = [
-  { label: 'Instagram', icon: Instagram, href: 'https://instagram.com/excursion.society', color: 'text-white/60 group-hover:text-pink-400', bg: 'hover:border-pink-500/50 hover:bg-pink-500/20 hover:shadow-[0_0_25px_rgba(236,72,153,0.6)]' },
-  { label: 'Facebook', icon: Facebook, href: 'https://facebook.com/excursionsociety', color: 'text-white/60 group-hover:text-blue-400', bg: 'hover:border-blue-500/50 hover:bg-blue-500/20 hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]' },
-  { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/923001234567', color: 'text-white/60 group-hover:text-green-400', bg: 'hover:border-green-500/50 hover:bg-green-500/20 hover:shadow-[0_0_25px_rgba(34,197,94,0.6)]' },
+  { label: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/cusit.excursion.society?igsh=MTh6dzNsdmZ2cG9ybQ%3D%3D&utm_source=qr', color: 'text-pink-500', glow: 'hover:shadow-[0_0_20px_rgba(236,72,153,0.9)] hover:scale-125' },
+  { label: 'WhatsApp', icon: WhatsAppIcon, href: 'https://wa.me/923188368361', color: 'text-green-400', glow: 'hover:shadow-[0_0_20px_rgba(34,197,94,0.9)] hover:scale-125' },
 ];
 
-const HERO_BG = 'https://images.unsplash.com/photo-1673505413397-0cd0dc4f5854?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920';
+const HERO_BG = 'https://plus.unsplash.com/premium_photo-1665311551953-5ee597cb9d47?q=80&w=1920&auto=format&fit=crop';
 
 const floatingIcons = [
   { icon: Compass, top: '20%', left: '82%', size: 'w-9 h-9', color: 'text-[#870000]', xFactor: 55, yFactor: 35, delay: 0 },
@@ -29,6 +34,15 @@ export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [loaded, setLoaded] = useState(false);
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = HERO_BG;
+    img.onload = () => setBgLoaded(true);
+    img.onerror = () => setBgLoaded(true); // show anyway on error
+    if (img.complete) setBgLoaded(true); // already cached
+  }, []);
 
   useEffect(() => {
     setLoaded(true);
@@ -48,14 +62,23 @@ export default function HeroSection() {
   const springConfig = { type: 'spring' as const, damping: 20, stiffness: 70, mass: 0.8 };
 
   return (
-    <section id="home" ref={heroRef} className="relative h-screen min-h-[700px] overflow-hidden">
+    <section id="home" ref={heroRef} className="relative h-[100vh] min-h-[600px] overflow-hidden">
 
       {/* Background image with subtle parallax */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center scale-110"
-        style={{ backgroundImage: `url('${HERO_BG}')` }}
+        style={{
+          backgroundImage: bgLoaded ? `url('${HERO_BG}')` : 'none',
+          opacity: bgLoaded ? 1 : 0,
+          transition: 'opacity 0.8s ease',
+        }}
         animate={{ x: mouse.x * -15, y: mouse.y * -10 }}
         transition={springConfig}
+      />
+      {/* Dark fallback shown while bg image loads */}
+      <div
+        className="absolute inset-0 bg-slate-950 transition-opacity duration-700"
+        style={{ opacity: bgLoaded ? 0 : 1, pointerEvents: 'none' }}
       />
 
       {/* Sunset Orange & Gigas gradient overlays */}
@@ -87,7 +110,7 @@ export default function HeroSection() {
       {floatingIcons.map(({ icon: Icon, top, left, size, color, xFactor, yFactor, delay }, i) => (
         <motion.div
           key={i}
-          className="absolute glass rounded-2xl p-3 z-10"
+          className="absolute glass rounded-2xl p-3 z-10 hidden sm:block"
           style={{ top, left }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
@@ -146,7 +169,7 @@ export default function HeroSection() {
         className="absolute top-1/2 md:top-[45%] -translate-y-1/2 -ml-16 z-30 pointer-events-none"
         initial={{ left: "-10%" }}
         animate={{ left: "120%" }}
-        transition={{ duration: 5, ease: "linear", delay: 0.5, repeat: Infinity, repeatDelay: 8 }}
+        transition={{ duration: 5, ease: "linear", delay: 0.5 }}
       >
         <div className="relative">
           {/* Sparkles trailing behind the bus */}
@@ -193,27 +216,25 @@ export default function HeroSection() {
       <motion.div
         className="relative z-10 w-full h-full flex flex-col items-center justify-center text-center px-6 pt-16"
         initial={{ clipPath: "inset(0 100% 0 0)" }}
-        animate={{ clipPath: ["inset(0 100% 0 0)", "inset(0 -10% 0 0)"] }}
-        transition={{ duration: 5, ease: "linear", delay: 0.5, repeat: Infinity, repeatDelay: 8 }}
+        animate={{ clipPath: "inset(0 0% 0 0)" }}
+        transition={{ duration: 5, ease: "linear", delay: 0.5 }}
       >
-
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2.5 glass px-5 py-2.5 rounded-full mb-8 border border-[#870000]/40">
-          <span className="w-2 h-2 rounded-full bg-[#870000] animate-pulse" />
-          <span className="text-[#870000] text-xs font-semibold tracking-[0.2em] uppercase">
+        <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6 border border-[#870000]/40">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#870000] animate-pulse" />
+          <span className="text-[#870000] text-[10px] font-semibold tracking-[0.2em] uppercase">
             CUSIT Excursion Society
           </span>
-          <span className="w-2 h-2 rounded-full bg-[#190A05] animate-pulse" style={{ animationDelay: '0.5s' }} />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#190A05] animate-pulse" style={{ animationDelay: '0.5s' }} />
         </div>
 
         {/* Main Heading with Line Animation */}
         <div className="mb-6 relative">
-          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black text-white leading-[0.9] tracking-tight relative z-10">
-            EXPLORE.
+          <h1 className="text-[clamp(1.8rem,5.5vw,3.8rem)] font-black text-white leading-[0.9] tracking-tight relative z-10">
+            <span>EXPLORE.</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#870000] to-[#190A05]">DISCOVER.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#870000] to-[#870000]">DISCOVER.</span>
             <br />
-            CONQUER.
+            <span>CONQUER.</span>
           </h1>
           {/* Animated SVG Line Decoration */}
           <svg className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 max-w-[400px] h-3 z-0" viewBox="0 0 200 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +258,7 @@ export default function HeroSection() {
         </div>
 
         {/* Subtitle */}
-        <p className="text-white/65 text-base md:text-xl max-w-2xl mb-10 font-light leading-relaxed">
+        <p className="text-white/65 text-sm md:text-base max-w-xl mb-8 font-light leading-relaxed">
           Most adventurous society of cusit  — turning campus life into
           extraordinary journeys across mountains, valleys, glaciers and beyond.
         </p>
@@ -246,14 +267,14 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4 mb-12">
           <button
             onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group px-8 py-4 bg-gradient-to-r from-[#870000] to-[#190A05] text-white rounded-full font-semibold tracking-wide hover:shadow-2xl hover:shadow-[#870000]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center"
+            className="group px-6 py-3 bg-gradient-to-r from-[#870000] to-[#190A05] text-white text-sm rounded-full font-semibold tracking-wide hover:shadow-2xl hover:shadow-[#870000]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 justify-center"
           >
-            <Mountain className="w-4 h-4 group-hover:translate-y-[-2px] transition-transform" />
+            <Mountain className="w-3.5 h-3.5 group-hover:translate-y-[-2px] transition-transform" />
             Explore Our Tours
           </button>
           <button
             onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-4 glass text-white rounded-full font-semibold border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 tracking-wide"
+            className="px-6 py-3 glass text-white text-sm rounded-full font-semibold border border-white/30 hover:bg-white/20 hover:border-white/50 hover:scale-105 transition-all duration-300 tracking-wide"
           >
             Join the Society →
           </button>
@@ -279,14 +300,14 @@ export default function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5 }}
         className="absolute bottom-8 left-6 md:left-10 z-20 flex flex-col gap-3"
       >
-        {socialLinks.map(({ label, icon: Icon, href, color, bg }) => (
+        {socialLinks.map(({ label, icon: Icon, href, color, glow }) => (
           <a
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
             title={label}
-            className={`group w-14 h-14 glass rounded-3xl z-20 flex items-center justify-center border border-white/20 transition-all duration-300 hover:scale-125 ${bg}`}
+            className={`group w-10 h-10 rounded-2xl z-20 flex items-center justify-center transition-all duration-300 ${glow}`}
           >
             {/* Self-drawing svg wrap */}
             <motion.div
@@ -294,7 +315,7 @@ export default function HeroSection() {
               animate={{ strokeDashoffset: 0 }}
               transition={{ duration: 2, ease: "easeInOut", delay: 2 }}
             >
-              <Icon className={`w-7 h-7 transition-colors duration-300 ${color}`} />
+              <Icon className={`w-5 h-5 ${color}`} />
             </motion.div>
           </a>
         ))}

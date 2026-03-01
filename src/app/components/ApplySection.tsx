@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'motion/react';
-import { User, Mail, Phone, BookOpen, Star, Send, CheckCircle, ChevronDown, Mountain } from 'lucide-react';
+import { User, Mail, Phone, BookOpen, Star, CheckCircle, ChevronDown } from 'lucide-react';
 
 const departments = [
   'Computer Science', 'Software Engineering', 'Electrical Engineering',
@@ -10,15 +10,13 @@ const departments = [
 
 const semesters = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th'];
 
-const skills = [
-  { value: 'photography', label: '📸 Photography' },
-  { value: 'first-aid', label: '⛑️ First Aid' },
-  { value: 'social-media', label: '📱 Social Media' },
-  { value: 'navigation', label: '🧭 Navigation' },
-  { value: 'cooking', label: '🍳 Cooking' },
-  { value: 'driving', label: '🚗 Driving' },
-  { value: 'hiking', label: '🥾 Hiking/Trekking' },
-  { value: 'video-editing', label: '🎬 Video Editing' },
+const teams = [
+  'Media Team',
+  'Logistics Team',
+  'Security Team',
+  'Finance Team',
+  'Decor Team',
+  'Creative Team',
 ];
 
 export default function ApplySection() {
@@ -26,50 +24,76 @@ export default function ApplySection() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [selectedTeams, setSelectedTeams] = useState<string>('');
   const [form, setForm] = useState({
     name: '', email: '', phone: '', department: '', semester: '',
     whyJoin: '', experience: '',
   });
 
-  const toggleSkill = (val: string) => {
-    setSelectedSkills((prev) =>
-      prev.includes(val) ? prev.filter((s) => s !== val) : [...prev, val]
-    );
+  const toggleTeam = (val: string) => {
+    setSelectedTeams((prev) => (prev === val ? '' : val));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1800));
-    setLoading(false);
-    setSubmitted(true);
+
+    const selectedTeamLabels = selectedTeams || 'None';
+
+    const message = [
+      `New Membership Application — Excursion Society`,
+      ``,
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Department: ${form.department}`,
+      `Semester: ${form.semester}`,
+      `Team Preference: ${selectedTeamLabels}`,
+      ``,
+      `Why I want to join:`,
+      form.whyJoin,
+      ``,
+      ...(form.experience ? [`Previous Experience:`, form.experience] : []),
+    ].join('\n');
+
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/923188368361?text=${encoded}`, '_blank');
+
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setForm({ name: '', email: '', phone: '', department: '', semester: '', whyJoin: '', experience: '' });
+        setSelectedTeams('');
+      }, 5000);
+    }, 800);
   };
 
   return (
-    <section id="apply" className="reveal-section py-24 bg-gradient-to-br from-slate-50 via-[#870000]/10 to-emerald-50">
+    <section id="apply" className="reveal-section pt-6 pb-24 bg-gradient-to-br from-slate-50 via-[#870000]/10 to-emerald-50">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div ref={ref} className="text-center mb-14">
+        <div ref={ref} className="text-center mb-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-2">
               <User className="w-3.5 h-3.5" />
               <span className="text-xs font-semibold tracking-widest uppercase">Join Our Society</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900">
-              Become a{' '}
-              <span className="text-gradient-strain">Member</span>
+            <h2 className="text-2xl md:text-3xl font-black text-slate-900">
+              Think You've Got{' '}
+              <span className="text-gradient-strain">What It Takes?</span>
             </h2>
-            <p className="text-slate-500 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
-              Fill out this form and we'll review your application. We welcome students from all departments who share a passion for adventure and exploration.
+            <p className="text-slate-500 mt-1 max-w-lg mx-auto text-xs leading-relaxed">
+              We don't just go on trips — we build legends. One form stands between you and your next adventure.
             </p>
           </motion.div>
         </div>
@@ -82,14 +106,12 @@ export default function ApplySection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-2 space-y-5"
           >
-            <div className="bg-gradient-to-br from-[#190A05] to-[#190A05] rounded-3xl p-7 text-white shadow-xl shadow-[#870000]/20">
-              <Mountain className="w-10 h-10 mb-4 text-[#870000]/20" />
-              <h3 className="text-xl font-black mb-2">Why Join Us?</h3>
-              <p className="text-[#870000]/10 text-sm leading-relaxed mb-6">
+            <div className="bg-gradient-to-br from-[#190A05] to-[#870000]/80 rounded-3xl p-7 text-white shadow-xl shadow-[#870000]/20">
+              <h3 className="text-xl font-black mb-2 text-white">Why Join Us?</h3>
+              <p className="text-white/70 text-sm leading-relaxed mb-6">
                 Be part of Pakistan's most adventurous university society. Explore, connect, and grow with us.
               </p>
               {[
-                'Access to 8+ yearly tours',
                 'Subsidized trip rates for members',
                 'Leadership & organizational skills',
                 'Photography & media exposure',
@@ -103,8 +125,12 @@ export default function ApplySection() {
                   transition={{ delay: 0.4 + i * 0.08 }}
                   className="flex items-center gap-3 mb-3"
                 >
-                  <CheckCircle className="w-4 h-4 text-[#870000] flex-shrink-0" />
-                  <span className="text-[#870000]/10 text-sm">{benefit}</span>
+                  <div className="w-5 h-5 rounded-full border border-white/50 flex items-center justify-center flex-shrink-0">
+                    <svg viewBox="0 0 12 12" className="w-3 h-3" fill="none">
+                      <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span className="text-white/90 text-sm">{benefit}</span>
                 </motion.div>
               ))}
             </div>
@@ -117,8 +143,12 @@ export default function ApplySection() {
               </h4>
               {['Enthusiasm for exploration', 'Team player mindset', 'Commitment to attend events', 'Willingness to contribute skills'].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 mb-2 text-slate-600 text-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                  {item}
+                  <div className="w-4 h-4 rounded-full border border-slate-400 flex items-center justify-center flex-shrink-0">
+                    <svg viewBox="0 0 12 12" className="w-2.5 h-2.5" fill="none">
+                      <path d="M2 6l3 3 5-5" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
@@ -131,32 +161,26 @@ export default function ApplySection() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="glass-white rounded-4xl p-12 shadow-2xl text-center h-full flex flex-col items-center justify-center border border-[#870000]/20"
-                style={{ borderRadius: '2rem' }}
-              >
-                <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-[#870000] to-[#190A05] flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#870000]/40 rotate-12">
-                  <CheckCircle className="w-12 h-12 text-white -rotate-12" />
-                </div>
-                <h3 className="text-slate-900 text-3xl font-black mb-4">Application Received! 🎉</h3>
-                <p className="text-slate-500 text-base leading-relaxed max-w-sm">
-                  Thank you for applying! Our team will review your application and get back to you within <strong>3-5 business days</strong> via WhatsApp or email.
-                </p>
-                <div className="mt-8 text-4xl">🏔️ 🌟 🗺️</div>
-              </motion.div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white/60 backdrop-blur-xl rounded-4xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(13,148,136,0.08)] border border-white transition-shadow duration-500 space-y-6"
-                style={{ borderRadius: '2rem' }}
-              >
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-black text-slate-800">Application Form</h3>
-                  <p className="text-slate-500 text-sm mt-1">Ready for the adventure of a lifetime?</p>
-                </div>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white/60 backdrop-blur-xl rounded-4xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(13,148,136,0.08)] border border-white transition-shadow duration-500 space-y-6"
+              style={{ borderRadius: '2rem' }}
+            >
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-black text-slate-800">Application Form</h3>
+                <p className="text-slate-500 text-sm mt-1">Ready for the adventure of a lifetime?</p>
+              </div>
+
+              {submitted && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-800 rounded-xl px-4 py-3 text-sm font-medium"
+                >
+                  <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  Thank you for your submission — we will contact you shortly.
+                </motion.div>
+              )}
 
                 {/* Name & Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -235,23 +259,25 @@ export default function ApplySection() {
                   </div>
                 </div>
 
-                {/* Skills */}
+                {/* Team Preference */}
                 <div>
-                  <p className="text-slate-600 text-xs font-semibold mb-2.5 tracking-wide pl-1">
-                    Select Your Skills <span className="font-normal opacity-70">(Optional)</span>
+                  <p className="text-slate-700 text-xs font-semibold mb-1 tracking-wide pl-1">
+                    Which team would you like to be part of?
                   </p>
+                  <p className="text-slate-400 text-xs pl-1 mb-3">Select one or more that match your interests</p>
                   <div className="flex flex-wrap gap-2">
-                    {skills.map(({ value, label }) => (
+                    {teams.map((team) => (
                       <button
-                        key={value}
+                        key={team}
                         type="button"
-                        onClick={() => toggleSkill(value)}
-                        className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-300 border ${selectedSkills.includes(value)
-                            ? 'bg-gradient-to-tr from-[#870000] to-[#870000] text-white border-transparent shadow-md shadow-[#870000]/30 -translate-y-0.5'
-                            : 'bg-white/60 text-slate-600 border-slate-200/60 hover:border-[#870000] hover:bg-[#870000]/10 hover:text-[#190A05] hover:-translate-y-0.5'
-                          }`}
+                        onClick={() => toggleTeam(team)}
+                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 border ${
+                          selectedTeams === team
+                            ? 'bg-[#870000] text-white border-[#870000] shadow-md shadow-[#870000]/25 -translate-y-0.5'
+                            : 'bg-white/60 text-slate-600 border-slate-200/60 hover:border-[#870000] hover:text-[#870000] hover:bg-[#870000]/5'
+                        }`}
                       >
-                        {label}
+                        {team}
                       </button>
                     ))}
                   </div>
@@ -296,18 +322,20 @@ export default function ApplySection() {
                       </>
                     ) : (
                       <>
-                        <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        Submit Application
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white group-hover:translate-x-0.5 transition-transform" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.528 5.855L.057 23.882a.75.75 0 0 0 .921.921l6.056-1.485A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.693 9.693 0 0 1-4.964-1.365l-.355-.212-3.683.903.93-3.595-.232-.37A9.693 9.693 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+                        </svg>
+                        Send via WhatsApp
                       </>
                     )}
                   </button>
                 </div>
 
                 <p className="text-slate-400 text-xs text-center font-medium mt-4">
-                  We'll reach out within 3–5 days · No spam, ever 🤝
+                  Opens WhatsApp · We'll get back to you within 3–5 days
                 </p>
-              </form>
-            )}
+            </form>
           </motion.div>
         </div>
       </div>

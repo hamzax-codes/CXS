@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Calendar, MapPin, Users, DollarSign, CheckCircle, MessageCircle, Clock, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, Users, DollarSign, CheckCircle, MessageCircle, Clock, ChevronRight, Compass } from 'lucide-react';
 
 const UPCOMING_IMAGE = 'https://images.unsplash.com/photo-1658817261180-2940a80fd019?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200';
 
@@ -13,7 +13,7 @@ const upcomingTour = {
   totalSpots: 40,
   spotsLeft: 13,
   price: 'PKR 18,000',
-  whatsapp: '+923001234567',
+  whatsapp: '+923188368361',
   highlights: [
     'Lake Saif ul Malook Sunrise',
     'Babusar Top (4,173m)',
@@ -29,8 +29,8 @@ const upcomingTour = {
 function CountdownBox({ value, label }: { value: number; label: string }) {
   return (
     <div className="text-center">
-      <div className="glass rounded-2xl px-4 py-3 mb-2 min-w-[60px]">
-        <div className="text-white font-black text-3xl tabular-nums leading-none">
+      <div className="glass rounded-xl px-3 py-2 mb-1.5 min-w-[48px]">
+        <div className="text-white font-black text-2xl tabular-nums leading-none">
           {String(value).padStart(2, '0')}
         </div>
       </div>
@@ -66,173 +66,95 @@ export default function UpcomingTourSection() {
   const whatsappMsg = encodeURIComponent(`Hi! I'm interested in joining the ${upcomingTour.name} tour. Please share more details.`);
 
   return (
-    <section id="upcoming" className="reveal-section relative py-24 overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${UPCOMING_IMAGE}')` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#190A05]/95 via-slate-950/90 to-slate-950/80" />
-
+    <section id="upcoming" className="reveal-section relative pt-6 pb-24 overflow-hidden bg-gradient-to-br from-slate-50 via-slate-50/30 to-rose-50/30">
       {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#870000]/10 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-slate-500/10 blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#870000]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-slate-300/20 blur-[100px] pointer-events-none" />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-6">
+      <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-6">
         {/* Section Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-4"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full border border-[#870000]/30 mb-4">
-            <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
-            <span className="text-slate-300 text-xs font-semibold tracking-widest uppercase">Now Booking Open</span>
+          <div className="inline-flex items-center gap-2 bg-[#870000]/10 text-[#190A05] px-4 py-2 rounded-full border border-[#870000]/20 mb-2">
+            <Compass className="w-3.5 h-3.5" />
+            <span className="text-xs font-semibold tracking-widest uppercase">Upcoming Excursion</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
-            Upcoming{' '}
-            <span className="text-gradient-strain">Excursion</span>
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 mt-1">
+            Next Adventure{' '}
+            <span className="text-gradient-strain">Loading...</span>
           </h2>
         </motion.div>
 
-        {/* Main Card */}
+        {/* Coming Soon Card */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-4xl overflow-hidden shadow-2xl shadow-black/50"
+          className="bg-white rounded-3xl p-10 md:p-16 text-center flex flex-col items-center gap-6 shadow-xl shadow-slate-200 border border-slate-100"
           style={{ borderRadius: '2rem' }}
         >
-          {/* Left: Tour Info */}
-          <div className="lg:col-span-3 glass p-8 md:p-12">
-            <div className="inline-flex items-center gap-2 bg-slate-500/20 text-slate-300 px-3 py-1.5 rounded-full text-xs font-bold mb-6 border border-slate-500/30">
-              <span className="animate-pulse">●</span> Registration Open · {upcomingTour.spotsLeft} spots left
-            </div>
+          {/* Animated icon */}
+          <motion.div
+            animate={{
+              scale: [1, 1.18, 0.95, 1.12, 1],
+              filter: [
+                'drop-shadow(0 0 0px #870000)',
+                'drop-shadow(0 0 22px #870000)',
+                'drop-shadow(0 0 8px #870000)',
+                'drop-shadow(0 0 28px #870000)',
+                'drop-shadow(0 0 0px #870000)',
+              ],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
+            className="w-36 h-36"
+          >
+            <img src="/images/bg_removed_logo.png" alt="Excursion Society" className="w-full h-full object-contain" />
+          </motion.div>
 
-            <h3 className="text-white text-3xl md:text-4xl font-black mb-2 leading-tight">
-              {upcomingTour.name}
+          <div>
+            <h3 className="text-slate-900 font-black text-3xl md:text-4xl mb-2 tracking-tight">
+              Something Big is Brewing
             </h3>
-            <p className="text-[#870000] text-sm font-medium mb-6">{upcomingTour.subtitle}</p>
-
-            {/* Meta info */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {[
-                { icon: MapPin, label: 'Destination', value: upcomingTour.location, color: 'text-[#870000]' },
-                { icon: Calendar, label: 'Dates', value: upcomingTour.fullDate, color: 'text-slate-400' },
-                { icon: Clock, label: 'Deadline', value: upcomingTour.deadline, color: 'text-amber-400' },
-                { icon: DollarSign, label: 'Fee Per Person', value: upcomingTour.price, color: 'text-cyan-400' },
-              ].map(({ icon: Icon, label, value, color }, i) => (
-                <div key={i} className="glass-dark rounded-2xl p-4">
-                  <div className={`flex items-center gap-2 ${color} mb-1`}>
-                    <Icon className="w-3.5 h-3.5" />
-                    <span className="text-[10px] uppercase tracking-wider font-semibold opacity-70">{label}</span>
-                  </div>
-                  <p className="text-white font-bold text-sm">{value}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Spots progress */}
-            <div className="mb-8">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2 text-white/70 text-xs">
-                  <Users className="w-3.5 h-3.5 text-[#870000]" />
-                  <span>{spotsFilled}/{upcomingTour.totalSpots} spots filled</span>
-                </div>
-                <span className="text-slate-400 font-bold text-xs">{upcomingTour.spotsLeft} remaining!</span>
-              </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#870000] via-cyan-400 to-slate-400 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${pct}%` } : {}}
-                  transition={{ duration: 1.5, delay: 0.5, ease: 'easeOut' }}
-                />
-              </div>
-              <p className="text-white/40 text-[10px] mt-1">{pct}% booked · Hurry up!</p>
-            </div>
-
-            {/* Highlights */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-8">
-              {upcomingTour.highlights.map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.07 }}
-                  className="flex items-center gap-2.5 text-white/80 text-sm"
-                >
-                  <CheckCircle className="w-4 h-4 text-[#870000] flex-shrink-0" />
-                  {h}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* WhatsApp CTA */}
-            <a
-              href={`https://wa.me/${upcomingTour.whatsapp}?text=${whatsappMsg}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group w-full flex items-center justify-center gap-3 py-4 px-8 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-black text-base shadow-xl shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:scale-[1.02] transition-all duration-300"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Book Your Spot on WhatsApp
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <p className="text-slate-500 text-sm max-w-md mx-auto leading-relaxed">
+              Our next expedition is being planned. Stay tuned — it's going to be one for the books.
+            </p>
           </div>
 
-          {/* Right: Countdown + Includes */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-[#190A05]/60 to-slate-900/80 p-8 flex flex-col gap-8 backdrop-blur-md border-l border-white/10">
-            {/* Countdown */}
-            <div>
-              <p className="text-white/50 text-xs tracking-widest uppercase font-medium mb-4 text-center">
-                Tour Begins In
-              </p>
-              <div className="flex justify-center gap-4">
-                <CountdownBox value={countdown.days} label="Days" />
-                <CountdownBox value={countdown.hours} label="Hours" />
-                <CountdownBox value={countdown.minutes} label="Mins" />
-                <CountdownBox value={countdown.seconds} label="Secs" />
-              </div>
-            </div>
-
-            <div className="h-px bg-white/10" />
-
-            {/* Includes */}
-            <div>
-              <p className="text-white/50 text-xs tracking-widest uppercase font-medium mb-5 text-center">
-                Package Includes
-              </p>
-              <div className="space-y-3">
-                {upcomingTour.includes.map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.6 + i * 0.1 }}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#870000] to-[#190A05] flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-3.5 h-3.5 text-white" />
-                    </div>
-                    <span className="text-white/80 text-sm font-medium">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div className="h-px bg-white/10" />
-
-            {/* Price highlight */}
-            <div className="text-center">
-              <p className="text-white/40 text-xs mb-1">All-Inclusive Package</p>
-              <p className="text-white font-black text-3xl">{upcomingTour.price}</p>
-              <p className="text-[#870000] text-xs mt-1">Per Person · Pay after confirmation</p>
-            </div>
+          {/* Animated dashes */}
+          <div className="flex items-center gap-2">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <motion.div
+                key={i}
+                className="h-1 rounded-full bg-[#870000]"
+                animate={{ width: ['12px', '32px', '12px'] }}
+                transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.15 }}
+              />
+            ))}
           </div>
+
+          <p className="text-slate-400 text-xs tracking-widest uppercase font-semibold">
+            Announcement dropping soon — keep your boots ready
+          </p>
         </motion.div>
       </div>
     </section>
   );
 }
+
+/* ============================================================
+   UPCOMING TOUR FULL CARD — UNCOMMENT WHEN TRIP IS ANNOUNCED
+   ============================================================
+
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-5 gap-0 rounded-4xl overflow-hidden shadow-2xl shadow-black/50"
+          style={{ borderRadius: '2rem' }}
+        >
+          LEFT PANEL — Tour Info, Meta, Spots, Highlights, WhatsApp CTA
+          RIGHT PANEL — Countdown Timer, Package Includes, Price
+        </motion.div>
+
+  ============================================================ */

@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
-import { Mountain, Instagram, Facebook, Youtube, Mail, Phone, MapPin, Heart, MessageCircle, ExternalLink } from 'lucide-react';
+import { Mountain, Instagram, Facebook, Mail, Phone, MapPin, Heart, MessageCircle, ExternalLink } from 'lucide-react';
 
 const socialLinks = [
   {
-    label: 'YouTube',
-    icon: Youtube,
-    href: 'https://youtube.com/@excursionsociety',
-    color: 'hover:text-[#870000] hover:bg-[#870000]/10',
-    bg: 'bg-[#FF0000]',
+    label: 'Instagram',
+    icon: Instagram,
+    href: 'https://www.instagram.com/cusit.excursion.society?igsh=MTh6dzNsdmZ2cG9ybQ%3D%3D&utm_source=qr',
+    color: 'hover:text-pink-500 hover:bg-pink-500/10',
+    bg: 'bg-pink-500',
   },
 ];
 
@@ -37,9 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-lg shadow-[#870000]/25">
-                <img src="/images/logo.jpg" alt="Excursion Society Logo" className="w-full h-full object-cover" />
-              </div>
+              <img src="/images/logo_white.png" alt="Excursion Society Logo" className="w-20 h-20 object-contain" />
               <div>
                 <div className="text-sm font-black tracking-[0.2em] uppercase">Excursion</div>
                 <div className="text-[10px] text-[#870000] tracking-[0.35em] uppercase font-medium">Society</div>
@@ -115,8 +113,8 @@ export default function Footer() {
             <div className="space-y-4">
               {[
                 { icon: Mail, label: 'Email', value: 'excursion@university.edu.pk', href: 'mailto:excursion@university.edu.pk' },
-                { icon: Phone, label: 'WhatsApp', value: '+92 300 123 4567', href: 'https://wa.me/923001234567' },
-                { icon: MapPin, label: 'Location', value: 'Student Activity Center, Block B', href: null },
+                { icon: Phone, label: 'WhatsApp', value: '+92 318 836 8361', href: 'https://wa.me/923188368361' },
+                { icon: MapPin, label: 'Location', value: 'SLC Block I, CUSIT Peshawar', href: null },
               ].map(({ icon: Icon, label, value, href }, i) => (
                 <div key={i} className="flex items-start gap-3 group">
                   <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#870000]/10 group-hover:border-[#870000]/30 transition-all">
@@ -139,8 +137,8 @@ export default function Footer() {
             {/* Office hours */}
             <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
               <p className="text-slate-400 text-xs mb-2 font-semibold uppercase tracking-wider">Office Hours</p>
-              <p className="text-slate-300 text-xs">Mon – Fri · 12:00 PM – 3:00 PM</p>
-              <p className="text-slate-500 text-xs mt-1">Room 204, Student Activity Center</p>
+              <p className="text-slate-300 text-xs">Mon – Fri · 2:00 PM – 5:00 PM</p>
+              <p className="text-slate-500 text-xs mt-1">SLC Block I, CUSIT Peshawar</p>
             </div>
           </div>
         </div>

@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? 'glass-white shadow-xl shadow-[#190A05]/10 py-2'
+          ? 'bg-white/60 backdrop-blur-md border-b border-white/40 shadow-sm shadow-[#190A05]/5 py-2'
           : 'bg-transparent py-4'
         }`}
       initial={{ y: -100, opacity: 0 }}
@@ -52,14 +52,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => scrollTo('#home')} className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl overflow-hidden shadow-lg shadow-[#870000]/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-            <img src="/images/logo.jpg" alt="Excursion Society Logo" className="w-full h-full object-cover" />
+          <div className="w-18 h-18 rounded-2xl overflow-hidden flex items-center justify-center">
+            <img
+              src={scrolled ? '/images/bg_removed_logo.png' : '/images/logo_white.png'}
+              alt="Excursion Society Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
           <div className="text-left leading-tight">
-            <div className={`text-sm font-black tracking-[0.2em] uppercase transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+            <div className={`text-base font-extrabold tracking-[0.2em] uppercase transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
               Excursion
             </div>
-            <div className={`text-[10px] font-medium tracking-[0.35em] uppercase transition-colors ${scrolled ? 'text-[#190A05]' : 'text-[#870000]'}`}>
+            <div className={`text-[13px] font-bold tracking-[0.35em] uppercase transition-colors ${scrolled ? 'text-[#190A05]' : 'text-[#870000]'}`}>
               Society
             </div>
           </div>
@@ -74,9 +78,12 @@ export default function Navbar() {
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className={`text-sm tracking-wide relative group font-medium transition-colors ${scrolled
-                    ? isActive ? 'text-[#190A05]' : 'text-slate-700 hover:text-[#190A05]'
-                    : isActive ? 'text-[#870000]' : 'text-white/80 hover:text-white'
+                className={`text-sm tracking-wide relative group font-medium transition-colors ${
+                    isActive
+                      ? scrolled ? 'text-[#870000]' : 'text-white'
+                      : scrolled
+                        ? 'text-slate-700 hover:text-[#190A05]'
+                        : 'text-white/80 hover:text-white'
                   }`}
               >
                 {link.label}
