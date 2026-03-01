@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'motion/react';
+import { img } from '../../utils/img';
 import { MapPin, Calendar, Users, Clock, X, ChevronLeft, ChevronRight, Tag, Map } from 'lucide-react';
 
 const tours = [
@@ -14,10 +15,10 @@ const tours = [
     tagColor: 'bg-[#870000]/10 text-[#190A05]',
     coverImage: 'https://images.unsplash.com/photo-1646514323937-e49758815da7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
     gallery: [
-      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM.jpeg',
-      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(1).jpeg',
-      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(2).jpeg',
-      '/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(3).jpeg',
+      img('/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM.jpeg'),
+      img('/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(1).jpeg'),
+      img('/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(2).jpeg'),
+      img('/images/T1/trip1/media/WhatsApp%20Image%202026-03-01%20at%207.11.03%20AM%20(3).jpeg'),
     ],
     description: 'The Excursion Society successfully organized a trip for female members to Islamabad, featuring visits to Trail 5, Lake View Park, and Centaurus. The outing provided a refreshing break and opportunities for networking in a scenic setting — participants enjoyed the natural beauty and engaging activities, making it a truly memorable experience.',
     highlights: ['Trail 5 Hike', 'Lake View Park', 'Centaurus Mall', 'Networking & Bonding'],
@@ -32,12 +33,12 @@ const tours = [
     duration: '1 Day',
     gradient: 'from-slate-600 to-emerald-800',
     tagColor: 'bg-emerald-100 text-emerald-800',
-    coverImage: '/images/T2/cover%20pic.jpg',
+    coverImage: img('/images/T2/cover%20pic.jpg'),
     gallery: [
-      '/images/T2/trip2/IMG_6857.JPG.jpeg',
-      '/images/T2/trip2/IMG_9023.jpeg',
-      '/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.18.39%20AM.jpeg',
-      '/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.19.06%20AM.jpeg',
+      img('/images/T2/trip2/IMG_6857.JPG.jpeg'),
+      img('/images/T2/trip2/IMG_9023.jpeg'),
+      img('/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.18.39%20AM.jpeg'),
+      img('/images/T2/trip2/WhatsApp%20Image%202026-03-01%20at%207.19.06%20AM.jpeg'),
     ],
     description: 'The Excursion Society organized a trek for male members to Miranjani — the highest peak in Nathiagali. Participants pushed their limits, soaked in breathtaking panoramic views, and forged strong bonds in one of KPK\'s most iconic alpine settings.',
     highlights: ['Miranjani Summit Trek', 'Nathiagali Pine Trails', 'Panoramic Peak Views', 'Team Bonding'],
@@ -52,11 +53,11 @@ const tours = [
     duration: '1 Day',
     gradient: 'from-green-700 to-emerald-900',
     tagColor: 'bg-emerald-100 text-emerald-800',
-    coverImage: '/images/T3/cover%20image.jpg',
+    coverImage: img('/images/T3/cover%20image.jpg'),
     gallery: [
-      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.27.52%20AM.jpeg',
-      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.01%20AM.jpeg',
-      '/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.10%20AM.jpeg',
+      img('/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.27.52%20AM.jpeg'),
+      img('/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.01%20AM.jpeg'),
+      img('/images/T3/trip3/WhatsApp%20Image%202026-03-01%20at%207.28.10%20AM.jpeg'),
     ],
     description: 'The Excursion Society organized a departmental trip for pharmacy students through the scenic pine forests of Nathiagali and Donga Gali — a perfect blend of outdoor adventure and academic enrichment. Students explored the lush highland trails, soaked in the crisp mountain air, and built lasting bonds amidst one of KPK\'s most beautiful hill station routes.',
     highlights: ['Nathiagali Pine Trails', 'Donga Gali View Point', 'Flora & Fauna Exploration', 'Departmental Bonding'],

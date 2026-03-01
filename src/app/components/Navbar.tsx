@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mountain, Menu, X } from 'lucide-react';
+import { img } from '../../utils/img';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -56,7 +57,7 @@ export default function Navbar() {
         <button onClick={() => scrollTo('#home')} className="flex items-center gap-3 group">
           <div className="w-18 h-18 rounded-2xl overflow-hidden flex items-center justify-center">
             <img
-              src={scrolled ? '/images/bg_removed_logo.png' : '/images/logo_white.png'}
+              src={scrolled ? img('/images/bg_removed_logo.png') : img('/images/logo_white.png')}
               alt="Excursion Society Logo"
               className="w-full h-full object-contain"
             />

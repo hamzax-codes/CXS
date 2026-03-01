@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
+import { img } from '../../utils/img';
 import { Compass, Mountain, MapPin, Star, ChevronDown, Users, Map, Award, Tent, Instagram, Facebook, Bus, Bird, Cloud, Sparkles } from 'lucide-react';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -13,7 +14,7 @@ const socialLinks = [
   { label: 'WhatsApp', icon: WhatsAppIcon, href: 'https://wa.me/923188368361', color: 'text-green-400', glow: 'hover:shadow-[0_0_20px_rgba(34,197,94,0.9)] hover:scale-125' },
 ];
 
-const HERO_BG = '/images/image.jpg';
+const HERO_BG = img('/images/image.jpg');
 
 const floatingIcons = [
   { icon: Compass, top: '20%', left: '82%', size: 'w-9 h-9', color: 'text-[#870000]', xFactor: 55, yFactor: 35, delay: 0 },

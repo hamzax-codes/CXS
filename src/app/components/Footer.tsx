@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Mountain, Instagram, Facebook, Mail, Phone, MapPin, Heart, MessageCircle, ExternalLink } from 'lucide-react';
+import { img } from '../../utils/img';
 
 const socialLinks = [
   {
@@ -37,7 +38,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <img src="/images/logo_white.png" alt="Excursion Society Logo" className="w-20 h-20 object-contain" />
+              <img src={img('/images/logo_white.png')} alt="Excursion Society Logo" className="w-20 h-20 object-contain" />
               <div>
                 <div className="text-sm font-black tracking-[0.2em] uppercase">Excursion</div>
                 <div className="text-[10px] text-[#870000] tracking-[0.35em] uppercase font-medium">Society</div>

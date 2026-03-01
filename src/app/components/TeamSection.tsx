@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'motion/react';
+import { img } from '../../utils/img';
 import { Users, Instagram, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TEAM_PHOTOS = [
-  '/images/grouppick.jpg',
-  '/images/grouppick2.jpg',
-  '/images/grouppick3.jpg',
-  '/images/grouppick4.jpg',
-  '/images/grouppick5.jpg'
+  img('/images/grouppick.jpg'),
+  img('/images/grouppick2.jpg'),
+  img('/images/grouppick3.jpg'),
+  img('/images/grouppick4.jpg'),
+  img('/images/grouppick5.jpg')
 ];
 
 // Preload only the first photo immediately (rest load when section is visible)
@@ -19,43 +20,43 @@ const teamMembers = [
     id: 1, name: 'Abdur Rehman', position: 'Male Head', dept: 'Computer Science', semester: '7th Sem',
     bio: 'Oversees all operations and leads the society with years of trekking experience across northern ranges.',
     gradient: 'from-[#870000] to-[#190A05]', initials: 'AR', tag: '👑 Leadership',
-    image: '/images/AbdurRehman.jpg'
+    image: img('/images/AbdurRehman.jpg')
   },
   {
     id: 2, name: 'Amar Hussain', position: 'General Secretary', dept: 'Business Admin', semester: '6th Sem',
     bio: 'Manages official records, operations, and logistics ensuring every excursion runs flawlessly.',
     gradient: 'from-slate-400 to-rose-600', initials: 'AH', tag: '♦️ Administration',
-    image: '/images/AmarHussain.jpg'
+    image: img('/images/AmarHussain.jpg')
   },
   {
     id: 3, name: 'Muqeeb Amir', position: 'President', dept: 'Electrical Eng.', semester: '5th Sem',
     bio: 'Visionary leader driving the society towards new heights and unforgettable adventures.',
     gradient: 'from-slate-400 to-blue-700', initials: 'MA', tag: '⭐ Presidency',
-    image: '/images/MuqeeebAmir.jpg'
+    image: img('/images/MuqeeebAmir.jpg')
   },
   {
     id: 4, name: 'Rizwan Safdar', position: 'Mentor', dept: 'Economics', semester: 'Faculty',
     bio: 'Provides invaluable guidance and experienced insights for organizing successful adventures.',
     gradient: 'from-cyan-400 to-purple-700', initials: 'RS', tag: '🧠 Guidance',
-    image: '/images/RizwanSAFDAR.jpg'
+    image: img('/images/RizwanSAFDAR.jpg')
   },
   {
     id: 5, name: 'Abbas Bukhari', position: 'Finance Head', dept: 'Mechanical Eng.', semester: '6th Sem',
     bio: 'Budget wizard keeping our adventures affordable, transparent, and financially sound.',
     gradient: 'from-emerald-400 to-green-700', initials: 'AB', tag: '💰 Finance',
-    image: '/images/abbasBukhari.jpg'
+    image: img('/images/abbasBukhari.jpg')
   },
   {
     id: 6, name: 'Fawad Khan', position: 'Vice President', dept: 'Mass Communication', semester: '4th Sem',
     bio: 'Assists the President in all matters and acts as a bridge between management and members.',
     gradient: 'from-pink-400 to-rose-600', initials: 'FK', tag: '✨ Management',
-    image: '/images/fawadkhan.jpg'
+    image: img('/images/fawadkhan.jpg')
   },
   {
     id: 7, name: 'Umar Khan', position: 'Media Head', dept: 'Psychology', semester: '5th Sem',
     bio: 'Capturing every moment brilliantly — responsible for photography and our digital presence.',
     gradient: 'from-cyan-400 to-[#190A05]', initials: 'UK', tag: '📸 Media',
-    image: '/images/umarkhan.jpg'
+    image: img('/images/umarkhan.jpg')
   },
 ];
 

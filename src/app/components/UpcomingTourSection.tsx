@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Calendar, MapPin, Users, DollarSign, CheckCircle, MessageCircle, Clock, ChevronRight, Compass } from 'lucide-react';
+import { img } from '../../utils/img';
 
 const UPCOMING_IMAGE = 'https://images.unsplash.com/photo-1658817261180-2940a80fd019?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200';
 
@@ -112,7 +113,7 @@ export default function UpcomingTourSection() {
             transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
             className="w-36 h-36"
           >
-            <img src="/images/bg_removed_logo.png" alt="Excursion Society" loading="lazy" className="w-full h-full object-contain" />
+            <img src={img('/images/bg_removed_logo.png')} alt="Excursion Society" loading="lazy" className="w-full h-full object-contain" />
           </motion.div>
 
           <div>
