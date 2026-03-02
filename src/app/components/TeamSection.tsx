@@ -17,43 +17,43 @@ _preload.src = TEAM_PHOTOS[0];
 
 const teamMembers = [
   {
-    id: 1, name: 'Abdur Rehman', position: 'Male Head', dept: 'Computer Science', semester: '7th Sem',
+    id: 1, name: 'Abdur Rehman', position: 'Male Head', dept: 'Civil Engineering', semester: '4th Sem',
     bio: 'Oversees all operations and leads the society with years of trekking experience across northern ranges.',
     gradient: 'from-[#870000] to-[#190A05]', initials: 'AR', tag: '👑 Leadership',
     image: img('/images/AbdurRehman.jpg')
   },
   {
-    id: 2, name: 'Amar Hussain', position: 'General Secretary', dept: 'Business Admin', semester: '6th Sem',
+    id: 2, name: 'Amar Hussain', position: 'General Secretary', dept: 'Pharmacy', semester: '10th Sem',
     bio: 'Manages official records, operations, and logistics ensuring every excursion runs flawlessly.',
     gradient: 'from-slate-400 to-rose-600', initials: 'AH', tag: '♦️ Administration',
     image: img('/images/AmarHussain.jpg')
   },
   {
-    id: 3, name: 'Muqeeb Amir', position: 'President', dept: 'Electrical Eng.', semester: '5th Sem',
+    id: 3, name: 'Muqeeb Amir', position: 'President', dept: 'Software Engineering', semester: '6th Sem',
     bio: 'Visionary leader driving the society towards new heights and unforgettable adventures.',
     gradient: 'from-slate-400 to-blue-700', initials: 'MA', tag: '⭐ Presidency',
     image: img('/images/MuqeeebAmir.jpg')
   },
   {
-    id: 4, name: 'Rizwan Safdar', position: 'Mentor', dept: 'Economics', semester: 'Faculty',
+    id: 4, name: 'Rizwan Safdar', position: 'Mentor', dept: 'English', semester: 'Mentor',
     bio: 'Provides invaluable guidance and experienced insights for organizing successful adventures.',
     gradient: 'from-cyan-400 to-purple-700', initials: 'RS', tag: '🧠 Guidance',
     image: img('/images/RizwanSAFDAR.jpg')
   },
   {
-    id: 5, name: 'Abbas Bukhari', position: 'Finance Head', dept: 'Mechanical Eng.', semester: '6th Sem',
+    id: 5, name: 'Abbas Bukhari', position: 'Finance Head', dept: 'BS English', semester: '6th Sem',
     bio: 'Budget wizard keeping our adventures affordable, transparent, and financially sound.',
     gradient: 'from-emerald-400 to-green-700', initials: 'AB', tag: '💰 Finance',
     image: img('/images/abbasBukhari.jpg')
   },
   {
-    id: 6, name: 'Fawad Khan', position: 'Vice President', dept: 'Mass Communication', semester: '4th Sem',
+    id: 6, name: 'Fawad Khan', position: 'Vice President', dept: 'English', semester: '6th Sem',
     bio: 'Assists the President in all matters and acts as a bridge between management and members.',
     gradient: 'from-pink-400 to-rose-600', initials: 'FK', tag: '✨ Management',
     image: img('/images/fawadkhan.jpg')
   },
   {
-    id: 7, name: 'Umar Khan', position: 'Media Head', dept: 'Psychology', semester: '5th Sem',
+    id: 7, name: 'Umar Khan', position: 'Media Head', dept: 'Pharmacy', semester: '10th Sem',
     bio: 'Capturing every moment brilliantly — responsible for photography and our digital presence.',
     gradient: 'from-cyan-400 to-[#190A05]', initials: 'UK', tag: '📸 Media',
     image: img('/images/umarkhan.jpg')
