@@ -23,7 +23,7 @@ const teamMembers = [
     image: img('/images/AbdurRehman.jpg')
   },
   {
-    id: 2, name: 'Amar Hussain', position: 'General Secretary', dept: 'Pharmacy', semester: '10th Sem',
+    id: 2, name: 'Ahmar Hussain', position: 'General Secretary', dept: 'Pharmacy', semester: '10th Sem',
     bio: 'Manages official records, operations, and logistics ensuring every excursion runs flawlessly.',
     gradient: 'from-slate-400 to-rose-600', initials: 'AH', tag: '♦️ Administration',
     image: img('/images/AmarHussain.jpg')
@@ -41,7 +41,7 @@ const teamMembers = [
     image: img('/images/RizwanSAFDAR.jpg')
   },
   {
-    id: 5, name: 'Abbas Bukhari', position: 'Finance Head', dept: 'BS English', semester: '6th Sem',
+    id: 5, name: 'Abbas Bukhari', position: 'Finance Head', dept: 'English', semester: '6th Sem',
     bio: 'Budget wizard keeping our adventures affordable, transparent, and financially sound.',
     gradient: 'from-emerald-400 to-green-700', initials: 'AB', tag: '💰 Finance',
     image: img('/images/abbasBukhari.jpg')
