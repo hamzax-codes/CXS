@@ -1,7 +1,5 @@
 export default defineConfig(({ command }) => ({
-  // Is line ko change karein:
-  base: '/', 
-  
+  base: '/',
   plugins: [
     react(),
     tailwindcss(),
